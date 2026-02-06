@@ -5,6 +5,27 @@ export const metadata: Metadata = {
   title: "Minute Maids | Professional Home Cleaning",
   description:
     "Licensed & insured home cleaning in Yamhill County and surrounding areas. Standard + deep cleans, add-ons, and move-in/out cleaning. Get an instant estimate.",
+  openGraph: {
+    title: "Minute Maids | Professional Home Cleaning",
+    description:
+      "Licensed & insured home cleaning in Yamhill County and surrounding areas. Standard + deep cleans, add-ons, and move-in/out cleaning. Get an instant estimate.",
+    url: "https://example.com",
+    siteName: "Minute Maids",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Minute Maids | Professional Home Cleaning",
+    description:
+      "Licensed & insured home cleaning in Yamhill County and surrounding areas. Standard + deep cleans, add-ons, and move-in/out cleaning. Get an instant estimate.",
+    images: ["/og.png"],
+  },
 };
 
 export const viewport = {
