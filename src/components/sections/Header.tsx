@@ -10,8 +10,8 @@ const nav = [
 ];
 
 export default function Header() {
-  const telHref = `tel:${site.phone.replace(/[^\d+]/g, "")}`;
-  const smsHref = `sms:${site.sms.replace(/[^\d+]/g, "")}`;
+  const telHref = `tel:${site.phoneTel}`;
+  const smsHref = `sms:${site.phoneTel}`;
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur">

@@ -1,8 +1,14 @@
 export const site = {
   businessName: "Minute Maids",
   ownerName: "Lacee Richter",
-  phone: "(XXX) XXX-XXXX",
-  sms: "(XXX) XXX-XXXX",
-  email: "hello@minutemaids.com",
+
+  // Phone
+  phoneDisplay: "(971) 220-4371", // what users see
+  phoneTel: "9712204371",         // digits only for tel:/sms:
+
+  // Email
+  email: "weloveminutemaids@outlook.com",
+
+  // Service area
   serviceArea: "Yamhill County & surrounding areas",
 };

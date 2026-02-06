@@ -24,6 +24,25 @@ export default function HomePage() {
       <FAQ />
       <Contact />
       <Footer />
+      {/* Netlify forms need a static HTML form present at build time */}
+      <form
+        name="quote"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        hidden
+      >
+        <input type="hidden" name="form-name" value="quote" />
+        <input name="bot-field" />
+        <input name="name" />
+        <input name="phone" />
+        <input name="email" />
+        <input name="address" />
+        <input name="sqft" />
+        <input name="service" />
+        <input name="timing" />
+        <textarea name="message" />
+      </form>
     </>
   );
 }
