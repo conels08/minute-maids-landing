@@ -107,7 +107,6 @@ export default function Gallery() {
                 fill
                 className="object-contain"
                 sizes="100vw"
-                priority
               />
             </div>
 
