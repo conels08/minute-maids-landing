@@ -123,14 +123,13 @@ export default function Contact() {
             <form
               name="quote"
               method="POST"
-              action="/"
+              action="/thank-you"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               className="grid gap-4"
             >
               {/* Netlify required hidden input */}
               <input type="hidden" name="form-name" value="quote" />
-              <input type="hidden" name="redirect" value="/#contact?sent=1" />
 
               {/* Honeypot */}
               <p className="hidden">
