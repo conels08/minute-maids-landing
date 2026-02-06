@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head></head>
+  <body>
+    <form
+      name="quote"
+      method="POST"
+      action="/"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="quote" />
+      <input type="hidden" name="redirect" value="/#contact?sent=1" />
+      <input name="bot-field" />
+
+      <input name="name" type="text" />
+      <input name="phone" type="text" />
+      <input name="email" type="email" />
+      <input name="address" type="text" />
+      <input name="sqft" type="text" />
+      <select name="service">
+        <option>Standard Clean</option>
+        <option>Deep Clean</option>
+        <option>Move In / Out</option>
+      </select>
+      <select name="timing">
+        <option>Next 2 weeks</option>
+        <option>This month</option>
+        <option>Just researching</option>
+      </select>
+      <textarea name="message"></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>

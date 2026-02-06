@@ -123,7 +123,7 @@ export default function Contact() {
             <form
               name="quote"
               method="POST"
-              action="/_forms.html"
+              action="/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               className="grid gap-4"
