@@ -1,19 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Section from "@/components/ui/Section";
 import { site } from "@/lib/site";
 
-function encode(data: Record<string, string>) {
-  return Object.keys(data)
-    .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(data[k]))
-    .join("&");
-}
-
 export default function Contact() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle"
-  );
+  const [sent, setSent] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
@@ -34,28 +26,16 @@ export default function Contact() {
     )}&body=${encodeURIComponent(body)}`;
   }, [form]);
 
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("sending");
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    setSent(params.get("sent") === "1");
+  }, []);
 
-    const payload: Record<string, string> = {
-      "form-name": "quote",
-      ...form,
-    };
-
-    try {
-      const res = await fetch("/__forms.html", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode(payload),
-      });
-
-      if (!res.ok) throw new Error("Bad response");
-
-      setStatus("sent");
-    } catch {
-      setStatus("error");
-    }
+  function clearSent() {
+    if (typeof window === "undefined") return;
+    window.history.replaceState(null, "", "/#contact");
+    setSent(false);
   }
 
   return (
@@ -109,7 +89,7 @@ export default function Contact() {
 
         {/* Right: Netlify form */}
         <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
-          {status === "sent" ? (
+          {sent ? (
             <div className="rounded-3xl border border-brand-200 bg-brand-50 p-6">
               <p className="text-sm font-semibold text-brand-900">
                 Message received ✅
@@ -129,25 +109,27 @@ export default function Contact() {
                 >
                   Text now
                 </a>
-                <a
-                  href="#estimate"
+                <button
+                  type="button"
+                  onClick={clearSent}
                   className="rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
                 >
-                  Adjust estimate
-                </a>
+                  Send another
+                </button>
               </div>
             </div>
           ) : (
             <form
               name="quote"
               method="POST"
+              action="/__forms.html"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              onSubmit={onSubmit}
               className="grid gap-4"
             >
               {/* Netlify required hidden input */}
               <input type="hidden" name="form-name" value="quote" />
+              <input type="hidden" name="redirect" value="/#contact?sent=1" />
 
               {/* Honeypot */}
               <p className="hidden">
@@ -244,13 +226,11 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, service: e.target.value }))
                     }
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none focus:ring-2 focus:ring-brand-300"
                   >
                     <option>Standard Clean</option>
                     <option>Deep Clean</option>
-                    <option>Move-in / Move-out</option>
-                    <option>Add-ons only</option>
-                    <option>Not sure</option>
+                    <option>Move In / Out</option>
                   </select>
                 </div>
 
@@ -264,20 +244,18 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, timing: e.target.value }))
                     }
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none focus:ring-2 focus:ring-brand-300"
                   >
-                    <option>ASAP</option>
-                    <option>Next 1 week</option>
                     <option>Next 2 weeks</option>
                     <option>This month</option>
-                    <option>Just browsing</option>
+                    <option>Just researching</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label className="text-sm font-semibold text-zinc-900">
-                  What would you like cleaned?
+                  Message
                 </label>
                 <textarea
                   name="message"
@@ -285,31 +263,17 @@ export default function Contact() {
                   onChange={(e) =>
                     setForm((f) => ({ ...f, message: e.target.value }))
                   }
-                  rows={5}
-                  placeholder="Example: 3 bed / 2 bath, deep clean, 2 dogs, focus on kitchen + bathrooms. Interested in fridge add-on."
+                  rows={4}
                   className="mt-2 w-full rounded-2xl border border-zinc-300 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-300"
                 />
               </div>
 
-              {status === "error" && (
-                <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-                  Something went wrong sending your message. You can still text
-                  or email Lacee using the buttons on the left.
-                </div>
-              )}
-
               <button
                 type="submit"
-                disabled={status === "sending"}
-                className="rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800 disabled:opacity-60"
+                className="rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
               >
-                {status === "sending" ? "Sending..." : "Send request"}
+                Send request
               </button>
-
-              <p className="text-xs text-zinc-500">
-                By submitting, you agree to be contacted about scheduling and
-                pricing. No spam.
-              </p>
             </form>
           )}
         </div>
