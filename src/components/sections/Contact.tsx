@@ -1,11 +1,19 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Section from "@/components/ui/Section";
 import { site } from "@/lib/site";
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const search =
+      window.location.search || window.location.hash.split("?")[1] || "";
+    const params = new URLSearchParams(
+      search.startsWith("?") ? search : `?${search}`
+    );
+    return params.get("sent") === "1";
+  });
 
   const [form, setForm] = useState({
     name: "",
@@ -25,13 +33,6 @@ export default function Contact() {
       subject
     )}&body=${encodeURIComponent(body)}`;
   }, [form]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    setSent(params.get("sent") === "1");
-  }, []);
-
   function clearSent() {
     if (typeof window === "undefined") return;
     window.history.replaceState(null, "", "/#contact");
