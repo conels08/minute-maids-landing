@@ -15,7 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen antialiased">
-        <main className="mx-auto w-full max-w-5xl px-4">{children}</main>
+        <a href="#content" className="skip-link">
+          Skip to content
+        </a>
+        <main id="content" className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          {children}
+        </main>
       </body>
     </html>
   );

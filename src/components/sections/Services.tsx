@@ -104,13 +104,21 @@ function Accordion({
 }) {
   return (
     <details className="group rounded-2xl border border-zinc-200 bg-white">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 text-sm font-semibold text-zinc-900">
+      <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 text-sm font-semibold text-zinc-900">
         {title}
-        <span className="rounded-full border border-zinc-200 bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-700 group-open:hidden">
-          View
-        </span>
-        <span className="hidden rounded-full border border-zinc-200 bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-700 group-open:inline">
-          Close
+        <span className="flex items-center gap-2">
+          <span className="rounded-full border border-zinc-200 bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-700 group-open:hidden">
+            View
+          </span>
+          <span className="hidden rounded-full border border-zinc-200 bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-700 group-open:inline">
+            Close
+          </span>
+          <span
+            aria-hidden="true"
+            className="text-xs text-zinc-500 transition-transform group-open:rotate-180"
+          >
+            ▾
+          </span>
         </span>
       </summary>
       <div className="px-4 pb-4 text-sm text-zinc-700">{children}</div>
@@ -131,11 +139,11 @@ export default function Services() {
         start with a deep clean — then maintain with standard service.
       </p>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-3">
+      <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {tiers.map((tier) => (
           <div
             key={tier.name}
-            className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm"
+            className="rounded-3xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm sm:p-6"
           >
             <div className="flex items-start justify-between gap-3">
               <div>
@@ -180,13 +188,13 @@ export default function Services() {
             <div className="mt-6 flex flex-col gap-2">
               <a
                 href="#estimate"
-                className="rounded-2xl bg-zinc-900 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
+                className="min-h-[44px] rounded-2xl bg-zinc-900 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
               >
                 Get an estimate
               </a>
               <a
                 href="#contact"
-                className="rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+                className="min-h-[44px] rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
               >
                 Ask a question
               </a>

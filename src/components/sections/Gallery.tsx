@@ -54,6 +54,7 @@ export default function Gallery() {
             key={item.id}
             type="button"
             onClick={() => setOpenId(item.id)}
+            aria-label={`Open ${item.title}`}
             className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white text-left shadow-sm transition hover:shadow-md"
           >
             <div className="relative aspect-[4/3] w-full bg-zinc-100">
@@ -76,7 +77,7 @@ export default function Gallery() {
       {/* Lightbox */}
       {openItem && (
         <div
-          className="fixed inset-0 z-[100] bg-black/70 p-4"
+          className="fixed inset-0 z-[100] overflow-y-auto bg-black/70 p-4"
           role="dialog"
           aria-modal="true"
           onClick={() => setOpenId(null)}
@@ -92,6 +93,7 @@ export default function Gallery() {
               <button
                 type="button"
                 onClick={() => setOpenId(null)}
+                aria-label="Close gallery preview"
                 className="rounded-full border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50"
               >
                 Close

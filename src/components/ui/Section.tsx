@@ -14,7 +14,10 @@ export default function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={`py-14 sm:py-20 ${className}`}>
+    <section
+      id={id}
+      className={`scroll-mt-24 py-12 sm:py-16 lg:py-20 ${className}`}
+    >
       <Container>
         {(eyebrow || title) && (
           <div className="mb-8">

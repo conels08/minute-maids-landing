@@ -15,7 +15,7 @@ export default function SpecialsBanner() {
   return (
     <section className="py-6">
       <Container>
-        <div className="relative overflow-hidden rounded-2xl border border-brand-200 bg-brand-50 p-5 shadow-sm">
+        <div className="relative overflow-hidden rounded-2xl border border-brand-200 bg-brand-50 p-4 shadow-sm sm:p-5">
           {/* Background image */}
           <div className="pointer-events-none absolute inset-0">
             <Image
@@ -23,7 +23,7 @@ export default function SpecialsBanner() {
               alt="Valentine's Day special banner of roses"
               fill
               priority={false}
-              className="object-cover opacity-99"
+              className="object-cover object-[center_top] opacity-95 sm:object-center"
               sizes="(max-width: 640px) 100vw, 1000px"
             />
             {/* Soft overlay for readability */}
@@ -34,7 +34,7 @@ export default function SpecialsBanner() {
 
           {/* Content layer */}
           <div className="relative">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-semibold text-brand-800">
                   Valentine’s Special
@@ -52,24 +52,24 @@ export default function SpecialsBanner() {
               <div className="flex flex-col gap-2 sm:items-end">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center rounded-2xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-brand-700/40 transition hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-md hover:ring-brand-800/60"
+                  className="inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-brand-700/40 transition hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-md hover:ring-brand-800/60 sm:w-auto"
                 >
                   Claim this special
                 </a>
 
-                <div className="flex gap-2">
+                <div className="flex flex-col gap-2 sm:flex-row">
                   <a
                     href={FLYER_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-2xl border border-zinc-300 bg-white/90 px-4 py-2 text-xs font-semibold text-zinc-900 hover:bg-white"
+                    className="inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl border border-zinc-300 bg-white/90 px-4 py-2 text-xs font-semibold text-zinc-900 hover:bg-white sm:w-auto"
                   >
                     View flyer (PDF)
                   </a>
                   <button
                     type="button"
                     onClick={() => setShowPreview((v) => !v)}
-                    className="inline-flex items-center justify-center rounded-2xl border border-zinc-300 bg-white/90 px-4 py-2 text-xs font-semibold text-zinc-900 hover:bg-white"
+                    className="inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl border border-zinc-300 bg-white/90 px-4 py-2 text-xs font-semibold text-zinc-900 hover:bg-white sm:w-auto"
                   >
                     {showPreview ? "Hide preview" : "Preview"}
                   </button>

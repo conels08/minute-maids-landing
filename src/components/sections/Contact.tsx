@@ -106,14 +106,14 @@ export default function Contact() {
               <div className="mt-5 flex flex-col gap-2 sm:flex-row">
                 <a
                   href={`sms:${site.phoneTel}`}
-                  className="rounded-2xl bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
+                  className="min-h-[44px] rounded-2xl bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
                 >
                   Text now
                 </a>
                 <button
                   type="button"
                   onClick={clearSent}
-                  className="rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+                  className="min-h-[44px] rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
                 >
                   Send another
                 </button>
@@ -145,12 +145,13 @@ export default function Contact() {
                   </label>
                   <input
                     name="name"
+                    autoComplete="name"
                     value={form.name}
                     onChange={(e) =>
                       setForm((f) => ({ ...f, name: e.target.value }))
                     }
                     required
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
                   />
                 </div>
 
@@ -160,12 +161,15 @@ export default function Contact() {
                   </label>
                   <input
                     name="phone"
+                    type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
                     value={form.phone}
                     onChange={(e) =>
                       setForm((f) => ({ ...f, phone: e.target.value }))
                     }
                     placeholder="(971) 220-4371"
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
                   />
                 </div>
               </div>
@@ -178,11 +182,12 @@ export default function Contact() {
                   <input
                     name="email"
                     type="email"
+                    autoComplete="email"
                     value={form.email}
                     onChange={(e) =>
                       setForm((f) => ({ ...f, email: e.target.value }))
                     }
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
                   />
                 </div>
 
@@ -192,11 +197,13 @@ export default function Contact() {
                   </label>
                   <input
                     name="sqft"
+                    inputMode="numeric"
+                    autoComplete="off"
                     value={form.sqft}
                     onChange={(e) =>
                       setForm((f) => ({ ...f, sqft: e.target.value }))
                     }
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
                   />
                 </div>
               </div>
@@ -207,11 +214,12 @@ export default function Contact() {
                 </label>
                 <input
                   name="address"
+                  autoComplete="street-address"
                   value={form.address}
                   onChange={(e) =>
                     setForm((f) => ({ ...f, address: e.target.value }))
                   }
-                  className="mt-2 w-full rounded-2xl border border-zinc-300 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-300"
+                  className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
                 />
               </div>
 
@@ -226,7 +234,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, service: e.target.value }))
                     }
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 outline-none focus:ring-2 focus:ring-brand-300"
                   >
                     <option>Standard Clean</option>
                     <option>Deep Clean</option>
@@ -244,7 +252,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, timing: e.target.value }))
                     }
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 outline-none focus:ring-2 focus:ring-brand-300"
                   >
                     <option>Next 2 weeks</option>
                     <option>This month</option>
@@ -264,13 +272,13 @@ export default function Contact() {
                     setForm((f) => ({ ...f, message: e.target.value }))
                   }
                   rows={4}
-                  className="mt-2 w-full rounded-2xl border border-zinc-300 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-300"
+                  className="mt-2 min-h-[120px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
                 />
               </div>
 
               <button
                 type="submit"
-                className="rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
+                className="min-h-[44px] rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
               >
                 Send request
               </button>

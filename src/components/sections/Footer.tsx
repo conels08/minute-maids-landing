@@ -33,6 +33,7 @@ export default function Footer() {
           <p className="mt-4 text-xs text-zinc-500">
             © {new Date().getFullYear()} {site.businessName}. All rights reserved.
           </p>
+          <p className="mt-1 text-xs text-zinc-500">Site by Colby Nelsen</p>
         </div>
       </Container>
     </section>
