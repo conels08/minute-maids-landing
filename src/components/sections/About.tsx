@@ -86,8 +86,14 @@ export default function About() {
         {/* Photo / brand image */}
         <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6">
           <div className="flex items-center gap-3">
-            <div className="relative h-10 w-10 overflow-hidden rounded-2xl bg-zinc-900">
-              <span className="absolute inset-0" />
+            <div className="relative h-10 w-10 overflow-hidden rounded-2xl">
+              <Image
+                src="/images/minute-maids-logo-transparent.png"
+                alt="Minute Maids logo"
+                fill
+                className="object-contain"
+                sizes="40px"
+              />
             </div>
             <div>
               <p className="text-sm font-semibold text-zinc-900">
