@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Container from "@/components/ui/Container";
 import { site } from "@/lib/site";
+import Image from "next/image";
 
 const nav = [
   { label: "Services", href: "#services" },
@@ -68,9 +69,17 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur">
         <Container className="flex h-16 items-center justify-between gap-3">
-          <a href="#top" className="flex items-center gap-2">
-            {/* Swap this to your logo later */}
-            <div className="h-9 w-9 rounded-xl bg-zinc-900" />
+          <a href="/" className="flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center sm:h-10 sm:w-10">
+              <Image
+                src="/images/minute-maids-logo-transparent.png"
+                alt="Minute Maids logo"
+                width={48}
+                height={48}
+                className="h-full w-full object-contain"
+                priority
+              />
+            </span>
             <div className="leading-tight">
               <p className="text-sm font-semibold text-zinc-900">
                 {site.businessName}
