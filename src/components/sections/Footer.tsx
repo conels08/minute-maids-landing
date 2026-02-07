@@ -3,7 +3,10 @@ import { site } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <section id="footer" className="border-t border-zinc-200 bg-white py-10">
+    <section
+      id="footer"
+      className="border-t border-zinc-200 bg-white py-10 pb-24 md:pb-10"
+    >
       <Container className="grid gap-6 text-sm text-zinc-700 sm:grid-cols-2">
         <div>
           <p className="text-base font-semibold text-zinc-900">
