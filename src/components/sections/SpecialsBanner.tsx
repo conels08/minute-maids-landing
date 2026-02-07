@@ -15,6 +15,7 @@ export default function SpecialsBanner() {
 
   useEffect(() => {
     if (!showImage) return;
+    const trigger = imageTriggerRef.current;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -32,7 +33,7 @@ export default function SpecialsBanner() {
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      imageTriggerRef.current?.focus();
+      trigger?.focus();
     };
   }, [showImage]);
 

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Container from "@/components/ui/Container";
 import { site } from "@/lib/site";
 import Image from "next/image";
+import Link from "next/link";
 
 const nav = [
   { label: "Services", href: "#services" },
@@ -69,7 +70,7 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur">
         <Container className="flex h-16 items-center justify-between gap-3">
-          <a href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center sm:h-10 sm:w-10">
               <Image
                 src="/images/minute-maids-logo-transparent.png"
@@ -86,7 +87,7 @@ export default function Header() {
               </p>
               <p className="text-xs text-zinc-600">{site.serviceArea}</p>
             </div>
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
             {nav.map((item) => (

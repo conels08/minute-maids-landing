@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || "https://example.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Minute Maids | Professional Home Cleaning",
   description:
     "Licensed & insured home cleaning in Yamhill County and surrounding areas. Standard + deep cleans, add-ons, and move-in/out cleaning. Get an instant estimate.",
