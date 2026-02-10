@@ -104,12 +104,12 @@ export default function About() {
           </div>
 
           <div className="mt-5 overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50">
-            <div className="relative aspect-[16/10] w-full">
+            <div className="relative aspect-[4/5] w-full sm:aspect-[5/6]">
               <Image
-                src="/images/closet-before-after.png"
-                alt="Before and after results"
+                src="/images/Lacee-Richter-Head-Shot.jpg"
+                alt="Lacee Richter, owner of Minute Maids"
                 fill
-                className="object-cover"
+                className="object-cover object-[50%_38%]"
                 sizes="(max-width: 1024px) 100vw, 520px"
               />
             </div>
