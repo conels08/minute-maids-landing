@@ -41,32 +41,22 @@ export default function SpecialsBanner() {
     <section className="py-6">
       <Container>
         <div className="rounded-2xl border border-brand-200 bg-brand-50 p-4 shadow-sm sm:p-5">
-          <div className="grid gap-6 sm:grid-cols-[1.1fr_0.9fr] sm:items-center">
+          <div className="flex flex-col gap-5 sm:gap-6">
             <div>
               <p className="text-sm font-semibold text-brand-800">
-                Valentine’s Special
+                Valentine’s Deep-Clean Bundles
               </p>
               <p className="mt-1 text-base font-medium text-zinc-900">
-                Book a deep clean and get a{" "}
-                <span className="font-semibold">free oven cleaning</span> + a{" "}
-                <span className="font-semibold">dozen roses</span>.
+                Limited-time deep-clean bundle pricing. Tap the flyer to zoom
+                and see bundle details.
               </p>
-              <p className="mt-1 text-sm text-zinc-700">
-                Limited time • While availability lasts
+              <p className="mt-2 text-sm text-zinc-700">
+                Questions? Text or call (971) 220-4371.
               </p>
-
-              <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
-                <a
-                  href="#contact"
-                  className="inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-brand-700/40 transition hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-md hover:ring-brand-800/60 sm:w-auto"
-                >
-                  Claim this special
-                </a>
-              </div>
             </div>
 
-            <div className="flex justify-center sm:justify-end">
-              <div className="w-full max-w-[320px]">
+            <div className="flex justify-center">
+              <div className="w-full max-w-[420px]">
                 <button
                   ref={imageTriggerRef}
                   type="button"
@@ -80,7 +70,7 @@ export default function SpecialsBanner() {
                       alt="Valentine’s special flyer"
                       fill
                       className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                      sizes="(max-width: 640px) 90vw, 320px"
+                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 420px"
                     />
                   </div>
                   <div className="border-t border-zinc-200 px-4 py-3 text-xs font-semibold text-zinc-700">
