@@ -40,17 +40,22 @@ export default function SpecialsBanner() {
   return (
     <section className="py-6">
       <Container>
-        <div className="rounded-2xl border border-brand-200 bg-brand-50 p-4 shadow-sm sm:p-5">
-          <div className="flex flex-col gap-5 sm:gap-6">
+        <div className="mx-auto w-full max-w-[800px] rounded-2xl border border-brand-200 bg-brand-50 p-4 shadow-sm sm:p-5">
+          <div className="flex flex-col gap-4 sm:gap-5">
             <div>
-              <p className="text-sm font-semibold text-brand-800">
-                Valentine’s Deep-Clean Bundles
-              </p>
-              <p className="mt-1 text-base font-medium text-zinc-900">
+              <div className="flex flex-wrap items-center gap-2">
+                <h2 className="text-base font-semibold text-brand-900 sm:text-lg">
+                  Valentine’s Deep-Clean Bundles
+                </h2>
+                <span className="rounded-full border border-brand-300 bg-white/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-brand-800">
+                  Limited time
+                </span>
+              </div>
+              <p className="mt-2 text-sm font-medium text-zinc-900 sm:text-base">
                 Limited-time deep-clean bundle pricing. Tap the flyer to zoom
                 and see bundle details.
               </p>
-              <p className="mt-2 text-sm text-zinc-700">
+              <p className="mt-1 text-xs text-zinc-600 sm:text-sm">
                 Questions? Text or call (971) 220-4371.
               </p>
             </div>
@@ -64,14 +69,16 @@ export default function SpecialsBanner() {
                   className="group w-full overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm"
                   aria-label="Preview Valentine’s flyer image"
                 >
-                  <div className="relative aspect-[3/4] w-full bg-white">
-                    <Image
-                      src="/images/valentines-2026.jpg"
-                      alt="Valentine’s special flyer"
-                      fill
-                      className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 420px"
-                    />
+                  <div className="rounded-t-3xl border-b border-zinc-200 bg-zinc-50 p-2">
+                    <div className="relative aspect-[3/4] w-full rounded-2xl border border-zinc-200 bg-white shadow-sm">
+                      <Image
+                        src="/images/valentines-2026.jpg"
+                        alt="Valentine’s special flyer"
+                        fill
+                        className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 420px"
+                      />
+                    </div>
                   </div>
                   <div className="border-t border-zinc-200 px-4 py-3 text-xs font-semibold text-zinc-700">
                     Tap to zoom
