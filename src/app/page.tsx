@@ -17,9 +17,9 @@ export default function HomePage() {
       <Header />
       <Hero />
       <SpecialsBanner />
-      <PricingGuide />
       <Services />
       <Estimator />
+      <PricingGuide />
       <Gallery />
       <Reviews />
       <About />
