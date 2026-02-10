@@ -5,10 +5,8 @@ import Container from "@/components/ui/Container";
 import Image from "next/image";
 
 const ENABLE_SPECIAL = true;
-const FLYER_URL = "/docs/valentines-brochure.pdf";
 
 export default function SpecialsBanner() {
-  const [showPreview, setShowPreview] = useState(false);
   const [showImage, setShowImage] = useState(false);
   const imagePanelRef = useRef<HTMLDivElement>(null);
   const imageTriggerRef = useRef<HTMLButtonElement>(null);
@@ -64,24 +62,6 @@ export default function SpecialsBanner() {
                 >
                   Claim this special
                 </a>
-
-                <div className="flex flex-col gap-2 sm:flex-row">
-                  <a
-                    href={FLYER_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl border border-zinc-300 bg-white/90 px-4 py-2 text-xs font-semibold text-zinc-900 hover:bg-white sm:w-auto"
-                  >
-                    View flyer (PDF)
-                  </a>
-                  <button
-                    type="button"
-                    onClick={() => setShowPreview((v) => !v)}
-                    className="inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl border border-zinc-300 bg-white/90 px-4 py-2 text-xs font-semibold text-zinc-900 hover:bg-white sm:w-auto"
-                  >
-                    {showPreview ? "Hide preview" : "Preview"}
-                  </button>
-                </div>
               </div>
             </div>
 
@@ -111,41 +91,6 @@ export default function SpecialsBanner() {
             </div>
           </div>
 
-          {showPreview && (
-            <div className="mt-5 overflow-hidden rounded-2xl border border-zinc-200 bg-white">
-              <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-3">
-                <p className="text-xs font-semibold text-zinc-900">
-                  Valentine’s Flyer Preview
-                </p>
-                <a
-                  href={FLYER_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs font-semibold text-brand-700 hover:text-brand-800"
-                >
-                  Open full PDF
-                </a>
-              </div>
-
-              <object
-                data={FLYER_URL}
-                type="application/pdf"
-                className="h-[70vh] w-full"
-              >
-                <div className="p-4 text-sm text-zinc-700">
-                  PDF preview isn’t available in this browser.{" "}
-                  <a
-                    className="font-semibold text-brand-700 hover:text-brand-800"
-                    href={FLYER_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Click here to open the flyer.
-                  </a>
-                </div>
-              </object>
-            </div>
-          )}
         </div>
       </Container>
 

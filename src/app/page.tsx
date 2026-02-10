@@ -6,6 +6,7 @@ import Footer from "@/components/sections/Footer";
 import Gallery from "@/components/sections/Gallery";
 import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
+import PricingGuide from "@/components/sections/PricingGuide";
 import Reviews from "@/components/sections/Reviews";
 import Services from "@/components/sections/Services";
 import SpecialsBanner from "@/components/sections/SpecialsBanner";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Header />
       <Hero />
       <SpecialsBanner />
+      <PricingGuide />
       <Services />
       <Estimator />
       <Gallery />
