@@ -39,9 +39,17 @@ export default function Reviews() {
           <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-4">
             <p className="text-sm font-semibold text-zinc-900">Tip</p>
             <p className="mt-1 text-sm text-zinc-700">
-              If you want, we can paste your Google review link here later and we’ll
-              add a “Read more on Google” button.
+              See more public feedback on Google while we finalize the direct
+              profile link.
             </p>
+            <a
+              href="https://www.google.com/search?q=Minute+Maids+reviews"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-flex min-h-[44px] items-center justify-center rounded-2xl bg-zinc-900 px-4 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
+            >
+              Read more on Google
+            </a>
           </div>
         </div>
 
