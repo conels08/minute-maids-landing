@@ -9,6 +9,22 @@ export const metadata: Metadata = {
   title: "Minute Maids | Professional Home Cleaning",
   description:
     "Licensed & insured home cleaning in Yamhill County and surrounding areas. Standard + deep cleans, add-ons, and move-in/out cleaning. Get an instant estimate.",
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    shortcut: ["/favicon.ico"],
+  },
   openGraph: {
     title: "Minute Maids | Professional Home Cleaning",
     description:
