@@ -110,11 +110,15 @@ export default function Estimator() {
         <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6">
           <div className="grid gap-5">
             <div>
-              <label className="text-sm font-semibold text-zinc-900">
+              <label
+                htmlFor="estimate-sqft-number"
+                className="text-sm font-semibold text-zinc-900"
+              >
                 Approximate square footage
               </label>
               <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <input
+                  id="estimate-sqft-number"
                   type="number"
                   min={300}
                   max={8000}
@@ -130,6 +134,7 @@ export default function Estimator() {
                   step={50}
                   value={sqft}
                   onChange={(e) => setSqft(Number(e.target.value))}
+                  aria-label="Approximate square footage slider"
                   className="w-full"
                 />
               </div>
@@ -140,13 +145,18 @@ export default function Estimator() {
 
             <div className="grid gap-3 sm:grid-cols-2">
               <div>
-                <label className="text-sm font-semibold text-zinc-900">
+                <p id="estimate-clean-type-label" className="text-sm font-semibold text-zinc-900">
                   Clean type
-                </label>
-                <div className="mt-2 grid grid-cols-2 gap-2">
+                </p>
+                <div
+                  className="mt-2 grid grid-cols-2 gap-2"
+                  role="group"
+                  aria-labelledby="estimate-clean-type-label"
+                >
                   <button
                     type="button"
                     onClick={() => setCleanType("standard")}
+                    aria-pressed={cleanType === "standard"}
                     className={`min-h-[44px] rounded-2xl border px-4 py-3 text-sm font-semibold ${
                       cleanType === "standard"
                         ? "border-zinc-900 bg-zinc-900 text-white"
@@ -158,6 +168,7 @@ export default function Estimator() {
                   <button
                     type="button"
                     onClick={() => setCleanType("deep")}
+                    aria-pressed={cleanType === "deep"}
                     className={`min-h-[44px] rounded-2xl border px-4 py-3 text-sm font-semibold ${
                       cleanType === "deep"
                         ? "border-zinc-900 bg-zinc-900 text-white"
@@ -170,10 +181,14 @@ export default function Estimator() {
               </div>
 
               <div>
-                <label className="text-sm font-semibold text-zinc-900">
+                <label
+                  htmlFor="estimate-condition"
+                  className="text-sm font-semibold text-zinc-900"
+                >
                   Home condition
                 </label>
                 <select
+                  id="estimate-condition"
                   value={condition}
                   onChange={(e) => setCondition(e.target.value as Condition)}
                   className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none focus:ring-2 focus:ring-blue-300"
@@ -186,8 +201,14 @@ export default function Estimator() {
             </div>
 
             <div>
-              <label className="text-sm font-semibold text-zinc-900">Pets</label>
-              <div className="mt-2 grid grid-cols-3 gap-2">
+              <p id="estimate-pets-label" className="text-sm font-semibold text-zinc-900">
+                Pets
+              </p>
+              <div
+                className="mt-2 grid grid-cols-3 gap-2"
+                role="group"
+                aria-labelledby="estimate-pets-label"
+              >
                 {[
                   { key: "none", label: "None" },
                   { key: "some", label: "1-2" },
@@ -197,6 +218,7 @@ export default function Estimator() {
                     key={item.key}
                     type="button"
                     onClick={() => setPets(item.key as Pets)}
+                    aria-pressed={pets === item.key}
                     className={`min-h-[44px] rounded-2xl border px-4 py-3 text-sm font-semibold ${
                       pets === item.key
                         ? "border-zinc-900 bg-zinc-900 text-white"

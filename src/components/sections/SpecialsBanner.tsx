@@ -5,6 +5,8 @@ import Container from "@/components/ui/Container";
 import Image from "next/image";
 
 const ENABLE_SPECIAL = true;
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export default function SpecialsBanner() {
   const [showImage, setShowImage] = useState(false);
@@ -13,11 +15,31 @@ export default function SpecialsBanner() {
 
   useEffect(() => {
     if (!showImage) return;
+    const previousOverflow = document.body.style.overflow;
     const trigger = imageTriggerRef.current;
+    document.body.style.overflow = "hidden";
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setShowImage(false);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+      const focusables = imagePanelRef.current?.querySelectorAll<HTMLElement>(
+        FOCUSABLE_SELECTOR
+      );
+      if (!focusables || focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
@@ -30,6 +52,7 @@ export default function SpecialsBanner() {
     });
 
     return () => {
+      document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", onKeyDown);
       trigger?.focus();
     };

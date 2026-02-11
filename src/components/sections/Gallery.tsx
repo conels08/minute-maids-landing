@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Section from "@/components/ui/Section";
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 type CombinedItem = {
   id: string;
   kind: "combined";
@@ -83,6 +86,7 @@ export default function Gallery() {
   const [openImage, setOpenImage] = useState<OpenImage | null>(null);
   const modalCloseRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
+  const modalPanelRef = useRef<HTMLDivElement>(null);
 
   function openFromEvent(
     e: React.MouseEvent<HTMLElement>,
@@ -96,15 +100,31 @@ export default function Gallery() {
     if (!openImage) return;
 
     const previousOverflow = document.body.style.overflow;
-    const previousTouchAction = document.body.style.touchAction;
     const trigger = triggerRef.current;
 
     document.body.style.overflow = "hidden";
-    document.body.style.touchAction = "none";
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpenImage(null);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+      const focusables = modalPanelRef.current?.querySelectorAll<HTMLElement>(
+        FOCUSABLE_SELECTOR
+      );
+      if (!focusables || focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
@@ -115,7 +135,6 @@ export default function Gallery() {
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      document.body.style.touchAction = previousTouchAction;
       document.removeEventListener("keydown", onKeyDown);
       trigger?.focus();
     };
@@ -246,6 +265,7 @@ export default function Gallery() {
           onClick={() => setOpenImage(null)}
         >
           <div
+            ref={modalPanelRef}
             className="mx-auto max-w-5xl overflow-hidden rounded-3xl bg-white shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >

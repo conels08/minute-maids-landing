@@ -47,6 +47,19 @@ summary:focus-visible {
   border-radius: 12px;
 }
 
+@media (forced-colors: active) {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}
+
 .skip-link {
   position: absolute;
   left: 12px;

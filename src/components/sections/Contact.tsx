@@ -140,10 +140,14 @@ export default function Contact() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-sm font-semibold text-zinc-900">
+                  <label
+                    htmlFor="contact-name"
+                    className="text-sm font-semibold text-zinc-900"
+                  >
                     Name
                   </label>
                   <input
+                    id="contact-name"
                     name="name"
                     autoComplete="name"
                     value={form.name}
@@ -156,10 +160,14 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold text-zinc-900">
+                  <label
+                    htmlFor="contact-phone"
+                    className="text-sm font-semibold text-zinc-900"
+                  >
                     Phone
                   </label>
                   <input
+                    id="contact-phone"
                     name="phone"
                     type="tel"
                     inputMode="tel"
@@ -176,10 +184,14 @@ export default function Contact() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-sm font-semibold text-zinc-900">
+                  <label
+                    htmlFor="contact-email"
+                    className="text-sm font-semibold text-zinc-900"
+                  >
                     Email
                   </label>
                   <input
+                    id="contact-email"
                     name="email"
                     type="email"
                     autoComplete="email"
@@ -192,10 +204,14 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold text-zinc-900">
+                  <label
+                    htmlFor="contact-sqft"
+                    className="text-sm font-semibold text-zinc-900"
+                  >
                     Sq ft (optional)
                   </label>
                   <input
+                    id="contact-sqft"
                     name="sqft"
                     inputMode="numeric"
                     autoComplete="off"
@@ -209,10 +225,14 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="text-sm font-semibold text-zinc-900">
+                <label
+                  htmlFor="contact-address"
+                  className="text-sm font-semibold text-zinc-900"
+                >
                   Address / area (optional)
                 </label>
                 <input
+                  id="contact-address"
                   name="address"
                   autoComplete="street-address"
                   value={form.address}
@@ -225,10 +245,14 @@ export default function Contact() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-sm font-semibold text-zinc-900">
+                  <label
+                    htmlFor="contact-service"
+                    className="text-sm font-semibold text-zinc-900"
+                  >
                     Service
                   </label>
                   <select
+                    id="contact-service"
                     name="service"
                     value={form.service}
                     onChange={(e) =>
@@ -243,10 +267,14 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold text-zinc-900">
+                  <label
+                    htmlFor="contact-timing"
+                    className="text-sm font-semibold text-zinc-900"
+                  >
                     Timing
                   </label>
                   <select
+                    id="contact-timing"
                     name="timing"
                     value={form.timing}
                     onChange={(e) =>
@@ -262,10 +290,14 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="text-sm font-semibold text-zinc-900">
+                <label
+                  htmlFor="contact-message"
+                  className="text-sm font-semibold text-zinc-900"
+                >
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   value={form.message}
                   onChange={(e) =>

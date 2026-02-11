@@ -4,11 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Section from "@/components/ui/Section";
 
 const GUIDE_URL = "/docs/Minute-Maids-residential-service-guide.pdf";
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export default function PricingGuide() {
   const [showPreview, setShowPreview] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previewTriggerRef = useRef<HTMLButtonElement>(null);
+  const previewPanelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!showPreview) return;
@@ -21,6 +24,24 @@ export default function PricingGuide() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setShowPreview(false);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+      const focusables = previewPanelRef.current?.querySelectorAll<HTMLElement>(
+        FOCUSABLE_SELECTOR
+      );
+      if (!focusables || focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
@@ -84,6 +105,7 @@ export default function PricingGuide() {
           onClick={() => setShowPreview(false)}
         >
           <div
+            ref={previewPanelRef}
             className="mx-auto flex h-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-white shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
