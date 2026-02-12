@@ -64,7 +64,7 @@ export default function PricingGuide() {
       title="Pricing & Service Guide"
       className="bg-transparent"
     >
-      <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium">
+      <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-gold text-on-gold">
         <p className="max-w-2xl text-sm text-zinc-700 sm:text-base">
           View our Standard Clean / Deep Clean checklist and service details.
         </p>

@@ -26,7 +26,7 @@ export default function FAQ() {
         {faqs.map((item) => (
           <details
             key={item.q}
-            className="group rounded-2xl border border-zinc-200 bg-white px-5 py-4 shadow-sm border-purple-soft ring-purple"
+            className="group rounded-2xl border border-zinc-200 bg-white px-5 py-4 shadow-sm border-purple-soft ring-purple card-gold-soft text-on-gold"
           >
             <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-zinc-900">
               <span>{item.q}</span>

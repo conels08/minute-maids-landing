@@ -48,7 +48,7 @@ export default function Contact() {
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Left: friendly copy + direct contact */}
-        <div className="rounded-3xl bg-white p-6 shadow-sm card-premium">
+        <div className="rounded-3xl bg-white p-6 shadow-sm card-gold text-on-gold">
           <p className="text-zinc-700">
             Tell Lacee what you need and she’ll reply with availability and a
             confirmed quote. You can also call or text for the fastest response.
@@ -89,7 +89,7 @@ export default function Contact() {
         </div>
 
         {/* Right: Netlify form */}
-        <div className="rounded-3xl bg-white p-6 shadow-sm card-premium">
+        <div className="rounded-3xl bg-white p-6 shadow-sm card-gold text-on-gold">
           {sent ? (
             <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 border-purple-soft">
               <p className="text-sm font-semibold text-brand-900">
@@ -155,7 +155,7 @@ export default function Contact() {
                       setForm((f) => ({ ...f, name: e.target.value }))
                     }
                     required
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base outline-none ring-purple"
                   />
                 </div>
 
@@ -177,7 +177,7 @@ export default function Contact() {
                       setForm((f) => ({ ...f, phone: e.target.value }))
                     }
                     placeholder="(971) 220-4371"
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base outline-none ring-purple"
                   />
                 </div>
               </div>
@@ -199,7 +199,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, email: e.target.value }))
                     }
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base outline-none ring-purple"
                   />
                 </div>
 
@@ -219,7 +219,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, sqft: e.target.value }))
                     }
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base outline-none ring-purple"
                   />
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function Contact() {
                   onChange={(e) =>
                     setForm((f) => ({ ...f, address: e.target.value }))
                   }
-                  className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
+                  className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base outline-none ring-purple"
                 />
               </div>
 
@@ -304,7 +304,7 @@ export default function Contact() {
                     setForm((f) => ({ ...f, message: e.target.value }))
                   }
                   rows={4}
-                  className="mt-2 min-h-[120px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
+                  className="mt-2 min-h-[120px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base outline-none ring-purple"
                 />
               </div>
 

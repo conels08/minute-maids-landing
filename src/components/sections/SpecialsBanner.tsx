@@ -63,7 +63,7 @@ export default function SpecialsBanner() {
   return (
     <section className="py-6 surface-purple">
       <Container>
-        <div className="mx-auto w-full max-w-[800px] rounded-2xl bg-white p-4 sm:p-5 card-premium">
+        <div className="mx-auto w-full max-w-[800px] rounded-2xl bg-white p-4 sm:p-5 card-gold text-on-gold">
           <div className="flex flex-col gap-4 sm:gap-5">
             <div>
               <div className="flex flex-wrap items-center gap-2">
@@ -78,7 +78,7 @@ export default function SpecialsBanner() {
                 Limited-time deep-clean bundle pricing. Tap the flyer to zoom
                 and see bundle details.
               </p>
-              <p className="mt-1 text-xs text-zinc-600 accent-copper-text sm:text-sm">
+              <p className="mt-1 text-xs text-zinc-600 sm:text-sm">
                 Questions? Text or call (971) 220-4371.
               </p>
             </div>

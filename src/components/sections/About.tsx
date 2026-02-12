@@ -12,7 +12,7 @@ export default function About() {
     >
       <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
         {/* Copy */}
-        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium">
+        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-gold text-on-gold">
           <p className="text-sm font-semibold text-zinc-900">
             My name is Lacee Richter, and I’m the owner and operator of Minute
             Maids, serving Yamhill County and the surrounding areas. After years
@@ -92,7 +92,7 @@ export default function About() {
         </div>
 
         {/* Photo / brand image */}
-        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium">
+        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-gold text-on-gold">
           <div className="flex items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-2xl">
               <Image

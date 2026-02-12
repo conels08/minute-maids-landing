@@ -40,15 +40,15 @@ export default function Services() {
       title="Simple options. Clear pricing."
       className="bg-transparent"
     >
-      <p className="max-w-3xl text-zinc-700">
+      <p className="max-w-3xl text-on-purple-muted">
         Rates are based on square footage and service level. Pets + home
         condition affect where your final price lands within the range.
       </p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-3xl bg-white p-5 sm:p-6 card-premium">
+        <div className="rounded-3xl bg-white p-5 sm:p-6 card-gold text-on-gold">
           <h3 className="text-lg font-semibold text-zinc-900">Standard Clean</h3>
-          <p className="mt-1 text-sm font-semibold accent-copper-text">
+          <p className="mt-1 text-sm font-semibold text-zinc-900">
             ${pricingConfig.rates.standard.low.toFixed(2)}-
             {pricingConfig.rates.standard.high.toFixed(2)} / sq ft
           </p>
@@ -56,7 +56,7 @@ export default function Services() {
             Great for upkeep and recurring maintenance cleans.
           </p>
 
-          <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-4">
+          <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-4 card-neutral">
             <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
               Example ranges
             </p>
@@ -71,9 +71,9 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="rounded-3xl bg-white p-5 sm:p-6 card-premium">
+        <div className="rounded-3xl bg-white p-5 sm:p-6 card-gold text-on-gold">
           <h3 className="text-lg font-semibold text-zinc-900">Deep Clean</h3>
-          <p className="mt-1 text-sm font-semibold accent-copper-text">
+          <p className="mt-1 text-sm font-semibold text-zinc-900">
             ${pricingConfig.rates.deep.low.toFixed(2)}-
             {pricingConfig.rates.deep.high.toFixed(2)} / sq ft
           </p>
@@ -82,7 +82,7 @@ export default function Services() {
             needs.
           </p>
 
-          <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-4">
+          <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-4 card-neutral">
             <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
               Example ranges
             </p>
@@ -97,9 +97,9 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="rounded-3xl bg-white p-5 sm:p-6 card-premium">
+        <div className="rounded-3xl bg-white p-5 sm:p-6 card-gold text-on-gold">
           <h3 className="text-lg font-semibold text-zinc-900">A la carte & specialty</h3>
-          <p className="mt-1 text-sm font-semibold accent-copper-text">
+          <p className="mt-1 text-sm font-semibold text-zinc-900">
             ${pricingConfig.hourlyRate} / hour (1 hour minimum)
           </p>
           <p className="mt-3 text-sm text-zinc-700">
@@ -107,7 +107,7 @@ export default function Services() {
             priced as request-a-quote.
           </p>
 
-          <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-4">
+          <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-4 card-neutral">
             <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
               Specialty services (request a quote)
             </p>
@@ -120,7 +120,7 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="mt-8 rounded-3xl bg-white p-5 sm:p-6 card-premium">
+      <div className="mt-8 rounded-3xl bg-white p-5 sm:p-6 card-gold-soft text-on-gold">
         <p className="text-sm text-zinc-700">
           Final pricing is confirmed after a quick walkthrough or a few photos.
           Estimates are designed to be transparent and realistic.

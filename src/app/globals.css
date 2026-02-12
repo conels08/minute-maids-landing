@@ -1,18 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --purple-50: #f6f2ff;
-  --purple-100: #eee8ff;
-  --purple-200: #ddd1ff;
-  --purple-500: #6a49cf;
-  --purple-600: #5b3cc4;
-  --purple-ring: rgba(91, 60, 196, 0.28);
-  --purple-border: rgba(91, 60, 196, 0.2);
-  --purple-border-soft: rgba(91, 60, 196, 0.12);
+  --purple-950: hsl(262 42% 12%);
+  --purple-900: hsl(264 46% 18%);
+  --purple-850: hsl(266 49% 23%);
+  --purple-800: hsl(269 52% 27%);
+  --purple-750: hsl(272 56% 34%);
+  --purple-700: hsl(274 58% 40%);
+  --purple-500: hsl(271 58% 45%);
+  --purple-600: hsl(268 55% 40%);
+  --purple-ring: hsl(272 68% 66% / 0.34);
+  --purple-border: hsl(273 56% 60% / 0.34);
+  --purple-border-soft: hsl(273 48% 74% / 0.26);
+  --purple-surface: hsl(264 45% 16%);
+  --purple-surface-2: hsl(270 50% 24%);
+  --purple-grad: radial-gradient(
+      130% 120% at 12% 6%,
+      hsl(274 58% 40% / 0.58) 0%,
+      hsl(272 56% 30% / 0.18) 34%,
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      hsl(262 42% 12%) 0%,
+      hsl(264 46% 18%) 56%,
+      hsl(266 49% 23%) 100%
+    );
+  --purple-grad-2: radial-gradient(
+      120% 100% at 84% 14%,
+      hsl(274 58% 40% / 0.5) 0%,
+      hsl(272 56% 30% / 0.14) 32%,
+      transparent 64%
+    ),
+    linear-gradient(
+      180deg,
+      hsl(264 46% 18%) 0%,
+      hsl(266 49% 23%) 50%,
+      hsl(262 42% 12%) 100%
+    );
+  --frame-950: hsl(228 23% 7%);
+  --frame-900: hsl(231 20% 11%);
+  --frame-grad: radial-gradient(
+      110% 80% at 50% -10%,
+      hsl(269 38% 24% / 0.28) 0%,
+      transparent 58%
+    ),
+    linear-gradient(180deg, var(--frame-900) 0%, var(--frame-950) 100%);
+  --on-purple: hsl(40 33% 96%);
+  --on-purple-muted: hsl(37 25% 86%);
   --copper-400: #c48957;
   --copper-500: #ae6f3e;
   --copper-600: #8b532a;
   --rating-gold: #b88712;
+  --gold-50: #fbf4e7;
+  --gold-100: #f2e4c8;
+  --gold-200: #e6d0a7;
+  --gold-surface: #f4e7cc;
+  --gold-surface-2: #ecd8b3;
+  --gold-grad: linear-gradient(
+    180deg,
+    rgba(251, 244, 231, 0.98) 0%,
+    rgba(236, 216, 179, 0.88) 100%
+  );
+  --ink: #1f2937;
+  --ink-muted: #4b5563;
+  --border-subtle: rgba(84, 66, 36, 0.22);
+  --shadow-soft: 0 14px 30px -24px rgba(62, 46, 22, 0.26);
   --card-bg: #ffffff;
   --card-border: rgba(15, 23, 42, 0.08);
   --shadow-1: 0 12px 28px -22px rgba(16, 24, 40, 0.35);
@@ -31,13 +84,7 @@ html {
 }
 
 body {
-  background: linear-gradient(
-    180deg,
-    rgba(106, 73, 207, 0.12) 0%,
-    rgba(106, 73, 207, 0.06) 24%,
-    rgba(106, 73, 207, 0.03) 55%,
-    #fafafa 100%
-  );
+  background: var(--frame-grad);
   color: #0f172a;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
@@ -105,18 +152,81 @@ summary:focus-visible {
 }
 
 .surface-purple {
+  background: radial-gradient(
+      140% 105% at 50% 14%,
+      hsl(274 58% 43% / 0.48) 0%,
+      hsl(272 56% 32% / 0.16) 36%,
+      transparent 62%
+    ),
+    linear-gradient(
+      180deg,
+      hsl(264 46% 20%) 0%,
+      hsl(266 49% 24%) 54%,
+      hsl(262 42% 13%) 100%
+    );
+}
+
+.surface-purple-alt {
+  background: radial-gradient(
+      130% 95% at 78% 16%,
+      hsl(274 58% 44% / 0.42) 0%,
+      hsl(272 56% 32% / 0.14) 34%,
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      hsl(266 49% 23%) 0%,
+      hsl(264 46% 18%) 52%,
+      hsl(262 42% 12%) 100%
+    );
+}
+
+.surface-purple-soft {
   background: linear-gradient(
     180deg,
-    rgba(106, 73, 207, 0.08) 0%,
-    rgba(106, 73, 207, 0.035) 60%,
-    rgba(106, 73, 207, 0.015) 100%
+    hsl(264 46% 18% / 0.95) 0%,
+    hsl(266 49% 23% / 0.9) 100%
   );
+}
+
+.text-on-purple {
+  color: var(--on-purple);
+}
+
+.text-on-purple-muted {
+  color: var(--on-purple-muted);
 }
 
 .card-premium {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   box-shadow: var(--shadow-1), var(--shadow-2);
+}
+
+.card-gold {
+  background: var(--gold-grad);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft), var(--shadow-1);
+}
+
+.card-gold-soft {
+  background: linear-gradient(
+    180deg,
+    rgba(251, 244, 231, 0.95) 0%,
+    rgba(236, 216, 179, 0.72) 100%
+  );
+  border: 1px solid rgba(84, 66, 36, 0.18);
+  box-shadow: var(--shadow-soft);
+}
+
+.card-neutral {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-1), var(--shadow-2);
+}
+
+.text-on-gold {
+  color: var(--ink);
 }
 
 .border-purple {

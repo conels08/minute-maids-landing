@@ -147,7 +147,7 @@ export default function Gallery() {
       title="Before & after you can feel"
       className="bg-transparent"
     >
-      <p className="max-w-2xl text-zinc-700">
+      <p className="max-w-2xl text-on-purple-muted">
         Clean isn’t just &quot;tidy.&quot; It’s the reset you notice the moment you walk
         in. Tap any photo to zoom.
       </p>
@@ -167,7 +167,7 @@ export default function Gallery() {
                   })
                 }
                 aria-label={`Open ${item.title}`}
-                className="group overflow-hidden rounded-3xl bg-white text-left shadow-sm transition hover:shadow-md card-premium ring-purple"
+                className="group overflow-hidden rounded-3xl bg-white text-left shadow-sm transition hover:shadow-md card-gold text-on-gold ring-purple"
               >
                 <div className="relative aspect-[4/3] w-full bg-zinc-100">
                   <Image
@@ -189,7 +189,7 @@ export default function Gallery() {
           return (
             <div
               key={item.id}
-              className="overflow-hidden rounded-3xl bg-white text-left shadow-sm card-premium"
+              className="overflow-hidden rounded-3xl bg-white text-left shadow-sm card-gold text-on-gold"
             >
               <div className="grid gap-2 p-2 sm:grid-cols-2">
                 <button

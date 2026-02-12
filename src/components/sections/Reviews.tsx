@@ -27,7 +27,7 @@ export default function Reviews() {
       className="bg-transparent"
     >
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="rounded-3xl bg-white p-5 sm:p-6 card-premium">
+        <div className="rounded-3xl bg-white p-5 sm:p-6 card-gold text-on-gold">
           <p className="text-sm font-semibold text-zinc-900">
             Real words from real clients
           </p>

@@ -107,7 +107,7 @@ export default function Estimator() {
       className="bg-transparent"
     >
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium">
+        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-gold text-on-gold">
           <div className="grid gap-5">
             <div>
               <label
@@ -291,7 +291,7 @@ export default function Estimator() {
           </div>
         </div>
 
-        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 lg:sticky lg:top-24 lg:self-start card-premium">
+        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 lg:sticky lg:top-24 lg:self-start card-gold text-on-gold">
           <p className="text-sm font-semibold text-zinc-900">Estimated range</p>
 
           <div
@@ -316,7 +316,7 @@ export default function Estimator() {
             </p>
           </div>
 
-          <div className="mt-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-sm text-zinc-700">
+          <div className="mt-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-sm text-zinc-700 card-gold-soft">
             <p className="font-semibold text-zinc-900">
               Add-on breakdown: ${pricingConfig.hourlyRate}/hr (1-hour minimum)
             </p>
@@ -333,7 +333,7 @@ export default function Estimator() {
           </div>
 
           <div className="mt-6 space-y-3 text-sm text-zinc-700">
-            <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
+            <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 card-gold-soft">
               <p className="font-semibold text-zinc-900">What&apos;s included?</p>
               <p className="mt-1">
                 Standard and deep cleans follow a clear checklist for kitchens,
@@ -341,7 +341,7 @@ export default function Estimator() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
+            <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 card-gold-soft">
               <p className="font-semibold text-zinc-900">Want an exact quote?</p>
               <p className="mt-1">
                 Send a message with your square footage and what you need - Lacee

@@ -22,12 +22,12 @@ export default function Section({
         {(eyebrow || title) && (
           <div className="mb-8">
             {eyebrow && (
-              <p className="text-sm font-medium tracking-wide text-zinc-600">
+              <p className="text-sm font-medium tracking-wide text-on-purple-muted">
                 {eyebrow}
               </p>
             )}
             {title && (
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-on-purple sm:text-3xl">
                 {title}
               </h2>
             )}

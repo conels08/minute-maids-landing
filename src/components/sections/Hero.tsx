@@ -12,11 +12,11 @@ export default function Hero() {
             Licensed & Insured • Owner-Operated
           </div>
 
-          <h1 className="mt-5 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl lg:text-5xl">
+          <h1 className="mt-5 text-3xl font-semibold tracking-tight text-on-purple sm:text-4xl lg:text-5xl">
             A spotless home, without the stress.
           </h1>
 
-          <p className="mx-auto mt-4 max-w-xl text-base text-zinc-700 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-base text-on-purple-muted sm:text-lg">
             Professional home cleaning in {site.serviceArea}. Standard & deep
             cleans, plus add-ons like fridge, oven, and organization.
           </p>
