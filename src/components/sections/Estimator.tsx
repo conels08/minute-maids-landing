@@ -135,7 +135,7 @@ export default function Estimator() {
                   value={sqft}
                   onChange={(e) => setSqft(Number(e.target.value))}
                   aria-label="Approximate square footage slider"
-                  className="w-full"
+                  className="w-full range-purple"
                 />
               </div>
               <p className="mt-2 text-xs text-zinc-600">
