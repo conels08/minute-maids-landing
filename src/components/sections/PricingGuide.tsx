@@ -64,7 +64,7 @@ export default function PricingGuide() {
       title="Pricing & Service Guide"
       className="bg-white"
     >
-      <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm sm:p-6">
+      <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm accent-purple-border accent-purple-surface sm:p-6">
         <p className="max-w-2xl text-sm text-zinc-700 sm:text-base">
           View our Standard Clean / Deep Clean checklist and service details.
         </p>
@@ -82,14 +82,14 @@ export default function PricingGuide() {
             ref={previewTriggerRef}
             type="button"
             onClick={() => setShowPreview(true)}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 accent-purple-hover-outline"
           >
             Preview
           </button>
           <a
             href={GUIDE_URL}
             download
-            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 accent-purple-hover-outline"
           >
             Download PDF
           </a>

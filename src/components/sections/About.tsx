@@ -14,22 +14,30 @@ export default function About() {
         {/* Copy */}
         <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6">
           <p className="text-sm font-semibold text-zinc-900">
-            Hi, I’m {site.ownerName}.
+            My name is Lacee Richter, and I’m the owner and operator of Minute
+            Maids, serving Yamhill County and the surrounding areas. After years
+            in a corporate environment that felt rigid and disconnected, I
+            realized I wanted something more meaningful — something rooted in
+            honesty and genuine human connection. Building this business has
+            allowed me to create exactly that.
           </p>
 
           <p className="mt-3 text-sm leading-relaxed text-zinc-700">
-            I started {site.businessName} to make home cleaning feel simple,
-            reliable, and genuinely worth it. I’m meticulous by nature — the
-            goal is always the same: a home that feels calm, reset, and easy to
-            live in.
+            As a mom of four, I understand how overwhelming life can feel when
+            your home doesn’t reflect the calm you crave. I know what it’s like
+            to juggle schedules, responsibilities, and the constant pressure to
+            “keep up.” That’s why I built Minute Maids with a simple mission: to
+            give families and individuals the gift of breathing room. A clean,
+            peaceful space isn’t just about tidiness — it’s about mental
+            clarity, comfort, and the ability to truly relax.
           </p>
 
           <p className="mt-3 text-sm leading-relaxed text-zinc-700">
-            I’m <span className="font-semibold">licensed & insured</span>, and
-            I treat every home with care and respect. Whether you need a
-            standard clean, a deep clean, or help with add-ons like ovens,
-            fridges, or organization — I’ll talk through what you want and
-            deliver a clear plan.
+            Minute Maids isn’t just a cleaning service — it’s a way for me to
+            serve my community, build relationships, and help people feel more
+            at ease in their everyday lives. Creating comfort for others
+            genuinely fills my soul, and I’m grateful for every home I’m invited
+            into.
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">

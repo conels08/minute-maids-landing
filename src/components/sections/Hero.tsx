@@ -4,12 +4,12 @@ import { site } from "@/lib/site";
 export default function Hero() {
   return (
     <section id="top" className="relative scroll-mt-24 overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white accent-purple-surface" />
 
       <Container className="py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-2xl text-center">
           {/* Trust pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm sm:text-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm accent-purple-border sm:text-sm">
             <span className="h-2 w-2 rounded-full bg-brand-500" />
             Licensed & Insured • Owner-Operated
           </div>
@@ -42,14 +42,13 @@ export default function Hero() {
           {/* Feature chips */}
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {[
-              "Background-checked",
               "Detailed checklists",
               "Respectful in your home",
               "Flexible add-ons",
             ].map((item) => (
               <div
                 key={item}
-                className="rounded-2xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm"
+                className="rounded-2xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm accent-purple-hover-outline"
               >
                 {item}
               </div>
