@@ -62,9 +62,9 @@ export default function PricingGuide() {
       id="pricing-guide"
       eyebrow="Service Guide"
       title="Pricing & Service Guide"
-      className="bg-white"
+      className="bg-transparent"
     >
-      <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm accent-purple-border accent-purple-surface sm:p-6">
+      <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium">
         <p className="max-w-2xl text-sm text-zinc-700 sm:text-base">
           View our Standard Clean / Deep Clean checklist and service details.
         </p>
@@ -82,14 +82,14 @@ export default function PricingGuide() {
             ref={previewTriggerRef}
             type="button"
             onClick={() => setShowPreview(true)}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 accent-purple-hover-outline"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 ring-purple"
           >
             Preview
           </button>
           <a
             href={GUIDE_URL}
             download
-            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 accent-purple-hover-outline"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 ring-purple"
           >
             Download PDF
           </a>

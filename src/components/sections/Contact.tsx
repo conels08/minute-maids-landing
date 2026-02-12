@@ -44,11 +44,11 @@ export default function Contact() {
       id="contact"
       eyebrow="Contact"
       title="Request a confirmed quote"
-      className="bg-zinc-50"
+      className="bg-transparent"
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Left: friendly copy + direct contact */}
-        <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <div className="rounded-3xl bg-white p-6 shadow-sm card-premium">
           <p className="text-zinc-700">
             Tell Lacee what you need and she’ll reply with availability and a
             confirmed quote. You can also call or text for the fastest response.
@@ -57,25 +57,25 @@ export default function Contact() {
           <div className="mt-6 grid gap-3">
             <a
               href={`tel:${site.phoneTel}`}
-              className="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100"
+              className="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100 ring-purple"
             >
               Call: {site.phoneDisplay}
             </a>
             <a
               href={`sms:${site.phoneTel}`}
-              className="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100"
+              className="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100 ring-purple"
             >
               Text: {site.phoneDisplay}
             </a>
             <a
               href={mailto}
-              className="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100"
+              className="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100 ring-purple"
             >
               Email: {site.email}
             </a>
           </div>
 
-          <div className="mt-6 rounded-3xl border border-brand-200 bg-brand-50 p-5">
+          <div className="mt-6 rounded-3xl border border-zinc-200 bg-zinc-50 p-5 border-purple-soft">
             <p className="text-sm font-semibold text-zinc-900">
               What helps Lacee quote fast
             </p>
@@ -89,9 +89,9 @@ export default function Contact() {
         </div>
 
         {/* Right: Netlify form */}
-        <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <div className="rounded-3xl bg-white p-6 shadow-sm card-premium">
           {sent ? (
-            <div className="rounded-3xl border border-brand-200 bg-brand-50 p-6">
+            <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 border-purple-soft">
               <p className="text-sm font-semibold text-brand-900">
                 Message received ✅
               </p>
@@ -155,7 +155,7 @@ export default function Contact() {
                       setForm((f) => ({ ...f, name: e.target.value }))
                     }
                     required
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
                   />
                 </div>
 
@@ -177,7 +177,7 @@ export default function Contact() {
                       setForm((f) => ({ ...f, phone: e.target.value }))
                     }
                     placeholder="(971) 220-4371"
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
                   />
                 </div>
               </div>
@@ -199,7 +199,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, email: e.target.value }))
                     }
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
                   />
                 </div>
 
@@ -219,7 +219,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, sqft: e.target.value }))
                     }
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
                   />
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function Contact() {
                   onChange={(e) =>
                     setForm((f) => ({ ...f, address: e.target.value }))
                   }
-                  className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
+                  className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
                 />
               </div>
 
@@ -258,7 +258,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, service: e.target.value }))
                     }
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 outline-none ring-purple"
                   >
                     <option>Standard Clean</option>
                     <option>Deep Clean</option>
@@ -280,7 +280,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, timing: e.target.value }))
                     }
-                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 outline-none focus:ring-2 focus:ring-brand-300"
+                    className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 outline-none ring-purple"
                   >
                     <option>Next 2 weeks</option>
                     <option>This month</option>
@@ -304,7 +304,7 @@ export default function Contact() {
                     setForm((f) => ({ ...f, message: e.target.value }))
                   }
                   rows={4}
-                  className="mt-2 min-h-[120px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none focus:ring-2 focus:ring-brand-300"
+                  className="mt-2 min-h-[120px] w-full rounded-2xl border border-zinc-300 px-4 py-3 text-base outline-none ring-purple"
                 />
               </div>
 

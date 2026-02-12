@@ -1,13 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --accent-purple: #5b3cc4;
-  --accent-purple-soft: rgba(91, 60, 196, 0.05);
-  --accent-purple-border: rgba(91, 60, 196, 0.24);
-  --accent-purple-outline: rgba(91, 60, 196, 0.18);
-  --accent-gold: #c9a227;
-  --accent-gold-soft: rgba(201, 162, 39, 0.16);
-  --accent-gold-border: rgba(201, 162, 39, 0.38);
+  --purple-50: #f6f2ff;
+  --purple-100: #eee8ff;
+  --purple-200: #ddd1ff;
+  --purple-500: #6a49cf;
+  --purple-600: #5b3cc4;
+  --purple-ring: rgba(91, 60, 196, 0.28);
+  --purple-border: rgba(91, 60, 196, 0.2);
+  --purple-border-soft: rgba(91, 60, 196, 0.12);
+  --copper-400: #c48957;
+  --copper-500: #ae6f3e;
+  --copper-600: #8b532a;
+  --rating-gold: #b88712;
+  --card-bg: #ffffff;
+  --card-border: rgba(15, 23, 42, 0.08);
+  --shadow-1: 0 12px 28px -22px rgba(16, 24, 40, 0.35);
+  --shadow-2: 0 18px 40px -24px rgba(91, 60, 196, 0.28);
+  --focus-ring: 0 0 0 3px var(--purple-ring);
 }
 
 *,
@@ -21,7 +31,13 @@ html {
 }
 
 body {
-  background: #fafafa;
+  background: linear-gradient(
+    180deg,
+    rgba(106, 73, 207, 0.12) 0%,
+    rgba(106, 73, 207, 0.06) 24%,
+    rgba(106, 73, 207, 0.03) 55%,
+    #fafafa 100%
+  );
   color: #0f172a;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
@@ -53,7 +69,7 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+  box-shadow: var(--focus-ring);
   border-radius: 12px;
 }
 
@@ -88,29 +104,104 @@ summary:focus-visible {
   top: 12px;
 }
 
+.surface-purple {
+  background: linear-gradient(
+    180deg,
+    rgba(106, 73, 207, 0.08) 0%,
+    rgba(106, 73, 207, 0.035) 60%,
+    rgba(106, 73, 207, 0.015) 100%
+  );
+}
+
+.card-premium {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-1), var(--shadow-2);
+}
+
+.border-purple {
+  border-color: var(--purple-border);
+}
+
+.border-purple-soft {
+  border-color: var(--purple-border-soft);
+}
+
+.ring-purple {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ring-purple:hover,
+.ring-purple:focus-visible {
+  border-color: rgba(106, 73, 207, 0.32);
+  box-shadow: var(--focus-ring);
+}
+
+.accent-copper-text {
+  color: var(--copper-600);
+}
+
+.accent-copper-link {
+  color: var(--copper-500);
+}
+
+.accent-copper-link:hover {
+  color: var(--copper-600);
+}
+
+.accent-copper-badge {
+  border: 1px solid rgba(196, 137, 87, 0.36);
+  background: linear-gradient(
+    180deg,
+    rgba(196, 137, 87, 0.24),
+    rgba(196, 137, 87, 0.14)
+  );
+  color: #6a3b1c;
+}
+
+.rating-star {
+  color: var(--rating-gold);
+}
+
+.badge-copper-solid {
+  background: rgba(174, 111, 62, 0.92);
+  color: #ffffff;
+}
+
+/* Legacy aliases to prevent drift while refactoring component classes. */
 .accent-purple-surface {
-  background-color: var(--accent-purple-soft);
+  background: linear-gradient(
+    180deg,
+    rgba(106, 73, 207, 0.08) 0%,
+    rgba(106, 73, 207, 0.035) 60%,
+    rgba(106, 73, 207, 0.015) 100%
+  );
 }
 
 .accent-purple-border {
-  border-color: var(--accent-purple-border);
+  border-color: var(--purple-border);
 }
 
 .accent-purple-hover-outline {
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.accent-purple-hover-outline:hover {
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 0 1px var(--accent-purple-outline);
+.accent-purple-hover-outline:hover,
+.accent-purple-hover-outline:focus-visible {
+  border-color: rgba(106, 73, 207, 0.32);
+  box-shadow: var(--focus-ring);
 }
 
 .accent-gold-badge {
-  border-color: var(--accent-gold-border);
-  background-color: var(--accent-gold-soft);
-  color: #6d5412;
+  border: 1px solid rgba(196, 137, 87, 0.36);
+  background: linear-gradient(
+    180deg,
+    rgba(196, 137, 87, 0.24),
+    rgba(196, 137, 87, 0.14)
+  );
+  color: #6a3b1c;
 }
 
 .accent-gold-text {
-  color: #7a5f16;
+  color: var(--copper-600);
 }

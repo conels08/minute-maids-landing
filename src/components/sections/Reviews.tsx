@@ -8,7 +8,7 @@ function Stars({ count }: { count: number }) {
         <span
           key={i}
           className={
-            i < count ? "text-amber-500" : "text-zinc-300"
+            i < count ? "rating-star" : "text-zinc-300"
           }
         >
           ★
@@ -24,10 +24,10 @@ export default function Reviews() {
       id="reviews"
       eyebrow="Reviews"
       title="Trusted locally"
-      className="bg-white"
+      className="bg-transparent"
     >
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-5 sm:p-6">
+        <div className="rounded-3xl bg-white p-5 sm:p-6 card-premium">
           <p className="text-sm font-semibold text-zinc-900">
             Real words from real clients
           </p>
@@ -57,7 +57,7 @@ export default function Reviews() {
           {reviews.map((r, idx) => (
             <div
               key={idx}
-              className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6"
+              className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>

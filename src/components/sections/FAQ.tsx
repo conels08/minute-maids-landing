@@ -21,12 +21,12 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <Section id="faq" eyebrow="FAQ" title="Quick answers" className="bg-white">
+    <Section id="faq" eyebrow="FAQ" title="Quick answers" className="bg-transparent">
       <div className="grid gap-4">
         {faqs.map((item) => (
           <details
             key={item.q}
-            className="group rounded-2xl border border-zinc-200 bg-white px-5 py-4"
+            className="group rounded-2xl border border-zinc-200 bg-white px-5 py-4 shadow-sm border-purple-soft ring-purple"
           >
             <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-zinc-900">
               <span>{item.q}</span>

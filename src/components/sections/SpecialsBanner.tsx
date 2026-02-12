@@ -61,16 +61,16 @@ export default function SpecialsBanner() {
   if (!ENABLE_SPECIAL) return null;
 
   return (
-    <section className="py-6">
+    <section className="py-6 surface-purple">
       <Container>
-        <div className="mx-auto w-full max-w-[800px] rounded-2xl border border-brand-200 bg-brand-50 p-4 shadow-sm accent-purple-border accent-purple-surface sm:p-5">
+        <div className="mx-auto w-full max-w-[800px] rounded-2xl bg-white p-4 sm:p-5 card-premium">
           <div className="flex flex-col gap-4 sm:gap-5">
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <h2 className="text-base font-semibold text-brand-900 sm:text-lg">
                   Valentine’s Deep-Clean Bundles
                 </h2>
-                <span className="rounded-full border border-brand-300 bg-white/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-brand-800 accent-gold-badge">
+                <span className="rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide accent-copper-text accent-copper-badge">
                   Limited time
                 </span>
               </div>
@@ -78,7 +78,7 @@ export default function SpecialsBanner() {
                 Limited-time deep-clean bundle pricing. Tap the flyer to zoom
                 and see bundle details.
               </p>
-              <p className="mt-1 text-xs text-zinc-600 accent-gold-text sm:text-sm">
+              <p className="mt-1 text-xs text-zinc-600 accent-copper-text sm:text-sm">
                 Questions? Text or call (971) 220-4371.
               </p>
             </div>
@@ -89,7 +89,7 @@ export default function SpecialsBanner() {
                   ref={imageTriggerRef}
                   type="button"
                   onClick={() => setShowImage(true)}
-                  className="group w-full overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm"
+                  className="group w-full overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm ring-purple"
                   aria-label="Preview Valentine’s flyer image"
                 >
                   <div className="rounded-t-3xl border-b border-zinc-200 bg-zinc-50 p-2">

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <section
       id="footer"
-      className="border-t border-zinc-200 bg-white py-10 pb-24 md:pb-10"
+      className="border-t border-zinc-200 bg-white py-10 pb-24 border-purple-soft md:pb-10"
     >
       <Container className="grid gap-6 text-sm text-zinc-700 sm:grid-cols-2">
         <div>
@@ -22,13 +22,13 @@ export default function Footer() {
           <div className="space-y-2">
             <a
               href={`tel:${site.phoneTel}`}
-              className="block font-medium text-zinc-900 hover:text-zinc-700"
+              className="block font-medium text-zinc-900 accent-copper-link"
             >
               {site.phoneDisplay}
             </a>
             <a
               href={`mailto:${site.email}`}
-              className="block font-medium text-zinc-900 hover:text-zinc-700"
+              className="block font-medium text-zinc-900 accent-copper-link"
             >
               {site.email}
             </a>

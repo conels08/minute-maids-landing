@@ -8,11 +8,11 @@ export default function About() {
       id="about"
       eyebrow="About"
       title="Owner-operated, done right"
-      className="bg-zinc-50"
+      className="bg-transparent"
     >
       <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
         {/* Copy */}
-        <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6">
+        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium">
           <p className="text-sm font-semibold text-zinc-900">
             My name is Lacee Richter, and I’m the owner and operator of Minute
             Maids, serving Yamhill County and the surrounding areas. After years
@@ -84,7 +84,7 @@ export default function About() {
             </a>
             <a
               href="#estimate"
-              className="min-h-[44px] rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+                className="min-h-[44px] rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50 ring-purple"
             >
               Get an estimate
             </a>
@@ -92,7 +92,7 @@ export default function About() {
         </div>
 
         {/* Photo / brand image */}
-        <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6">
+        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium">
           <div className="flex items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-2xl">
               <Image
@@ -126,7 +126,7 @@ export default function About() {
           <p className="mt-4 text-sm text-zinc-700">
             Serving <span className="font-semibold">{site.serviceArea}</span>.{" "}
             For fastest scheduling, text or call{" "}
-            <span className="font-semibold">{site.phoneDisplay}</span>.
+            <span className="font-semibold accent-copper-text">{site.phoneDisplay}</span>.
           </p>
         </div>
       </div>

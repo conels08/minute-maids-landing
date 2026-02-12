@@ -68,7 +68,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur border-purple-soft">
         <Container className="flex h-16 items-center justify-between gap-3">
           <Link href="/" className="flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center sm:h-10 sm:w-10">
@@ -94,7 +94,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-zinc-700 hover:text-zinc-900"
+                className="text-sm font-medium text-zinc-700 hover:text-zinc-900 accent-copper-link"
               >
                 {item.label}
               </a>
@@ -120,7 +120,7 @@ export default function Header() {
               aria-label="Open menu"
               aria-expanded={open}
               aria-controls="mobile-nav"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-900"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-900 ring-purple"
             >
               <span className="sr-only">Menu</span>
               <span className="flex flex-col gap-1">
@@ -162,7 +162,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={handleNavClick}
-                  className="rounded-xl border border-zinc-200 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+                  className="rounded-xl border border-zinc-200 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 ring-purple"
                 >
                   {item.label}
                 </a>
@@ -180,7 +180,7 @@ export default function Header() {
               <a
                 href={telHref}
                 onClick={handleNavClick}
-                className="rounded-xl border border-zinc-200 px-4 py-3 text-center text-sm font-semibold text-zinc-900"
+                className="rounded-xl border border-zinc-200 px-4 py-3 text-center text-sm font-semibold text-zinc-900 ring-purple"
               >
                 Call {site.phoneDisplay}
               </a>
@@ -200,13 +200,13 @@ export default function Header() {
           </a>
           <a
             href={smsHref}
-            className="flex min-h-[44px] items-center justify-center rounded-xl border border-zinc-300 text-sm font-semibold text-zinc-900"
+            className="flex min-h-[44px] items-center justify-center rounded-xl border border-zinc-300 text-sm font-semibold text-zinc-900 ring-purple"
           >
             Text
           </a>
           <a
             href="#estimate"
-            className="flex min-h-[44px] items-center justify-center rounded-xl border border-zinc-300 text-sm font-semibold text-zinc-900"
+            className="flex min-h-[44px] items-center justify-center rounded-xl border border-zinc-300 text-sm font-semibold text-zinc-900 ring-purple"
           >
             Quote
           </a>

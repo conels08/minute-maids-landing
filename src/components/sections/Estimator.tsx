@@ -104,10 +104,10 @@ export default function Estimator() {
       id="estimate"
       eyebrow="Estimator"
       title="Get a quick estimate in seconds"
-      className="bg-zinc-50"
+      className="bg-transparent"
     >
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6">
+        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium">
           <div className="grid gap-5">
             <div>
               <label
@@ -125,7 +125,7 @@ export default function Estimator() {
                   inputMode="numeric"
                   value={sqft}
                   onChange={(e) => setSqft(Number(e.target.value || 0))}
-                  className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none focus:ring-2 focus:ring-blue-300 sm:w-40"
+                  className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none ring-purple sm:w-40"
                 />
                 <input
                   type="range"
@@ -191,7 +191,7 @@ export default function Estimator() {
                   id="estimate-condition"
                   value={condition}
                   onChange={(e) => setCondition(e.target.value as Condition)}
-                  className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none focus:ring-2 focus:ring-blue-300"
+                  className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none ring-purple"
                 >
                   <option value="normal">Normal</option>
                   <option value="messy">Messy</option>
@@ -291,7 +291,7 @@ export default function Estimator() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6 lg:sticky lg:top-24 lg:self-start">
+        <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 lg:sticky lg:top-24 lg:self-start card-premium">
           <p className="text-sm font-semibold text-zinc-900">Estimated range</p>
 
           <div
@@ -305,8 +305,11 @@ export default function Estimator() {
               Estimated total with selected add-ons
             </p>
             <p className="mt-2 text-sm text-zinc-700">
-              Recommended estimate:{" "}
-              <span className="font-bold text-[#16935b]">
+              <span className="font-semibold uppercase tracking-wide accent-copper-text">
+                Recommended
+              </span>{" "}
+              estimate:{" "}
+              <span className="font-bold text-brand-600">
                 ~${estimate.recommendedTotal.toLocaleString()}
               </span>{" "}
               (based on pets + home condition)
@@ -356,7 +359,7 @@ export default function Estimator() {
             </a>
             <a
               href="#services"
-              className="rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+              className="rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50 ring-purple"
             >
               Review services
             </a>

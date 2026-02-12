@@ -145,7 +145,7 @@ export default function Gallery() {
       id="gallery"
       eyebrow="Results"
       title="Before & after you can feel"
-      className="bg-white"
+      className="bg-transparent"
     >
       <p className="max-w-2xl text-zinc-700">
         Clean isn’t just &quot;tidy.&quot; It’s the reset you notice the moment you walk
@@ -167,7 +167,7 @@ export default function Gallery() {
                   })
                 }
                 aria-label={`Open ${item.title}`}
-                className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white text-left shadow-sm transition hover:shadow-md"
+                className="group overflow-hidden rounded-3xl bg-white text-left shadow-sm transition hover:shadow-md card-premium ring-purple"
               >
                 <div className="relative aspect-[4/3] w-full bg-zinc-100">
                   <Image
@@ -189,7 +189,7 @@ export default function Gallery() {
           return (
             <div
               key={item.id}
-              className="overflow-hidden rounded-3xl border border-zinc-200 bg-white text-left shadow-sm"
+              className="overflow-hidden rounded-3xl bg-white text-left shadow-sm card-premium"
             >
               <div className="grid gap-2 p-2 sm:grid-cols-2">
                 <button
@@ -240,7 +240,7 @@ export default function Gallery() {
                       className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
-                    <span className="absolute left-2 top-2 rounded-full bg-brand-700/90 px-2 py-1 text-[11px] font-semibold text-white">
+                    <span className="absolute left-2 top-2 rounded-full px-2 py-1 text-[11px] font-semibold badge-copper-solid">
                       After
                     </span>
                   </div>
