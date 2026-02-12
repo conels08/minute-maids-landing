@@ -14,29 +14,42 @@
   --purple-border-soft: hsl(273 48% 74% / 0.26);
   --purple-surface: hsl(264 45% 16%);
   --purple-surface-2: hsl(270 50% 24%);
+  --purple-edge: hsl(272 58% 42%);
   --purple-grad: radial-gradient(
-      130% 120% at 12% 6%,
-      hsl(274 58% 40% / 0.58) 0%,
-      hsl(272 56% 30% / 0.18) 34%,
-      transparent 65%
+      145% 74% at 50% 6%,
+      hsl(272 58% 42% / 0.34) 0%,
+      hsl(272 58% 42% / 0.1) 42%,
+      transparent 74%
+    ),
+    radial-gradient(
+      145% 74% at 50% 94%,
+      hsl(272 58% 42% / 0.3) 0%,
+      hsl(272 58% 42% / 0.08) 42%,
+      transparent 74%
     ),
     linear-gradient(
       180deg,
-      hsl(262 42% 12%) 0%,
-      hsl(264 46% 18%) 56%,
-      hsl(266 49% 23%) 100%
+      hsl(266 49% 25%) 0%,
+      hsl(262 42% 12%) 50%,
+      hsl(266 49% 25%) 100%
     );
   --purple-grad-2: radial-gradient(
-      120% 100% at 84% 14%,
-      hsl(274 58% 40% / 0.5) 0%,
-      hsl(272 56% 30% / 0.14) 32%,
-      transparent 64%
+      140% 72% at 40% 8%,
+      hsl(274 58% 44% / 0.34) 0%,
+      hsl(274 58% 44% / 0.09) 40%,
+      transparent 72%
+    ),
+    radial-gradient(
+      140% 72% at 60% 92%,
+      hsl(274 58% 44% / 0.3) 0%,
+      hsl(274 58% 44% / 0.08) 40%,
+      transparent 72%
     ),
     linear-gradient(
       180deg,
-      hsl(264 46% 18%) 0%,
-      hsl(266 49% 23%) 50%,
-      hsl(262 42% 12%) 100%
+      hsl(269 52% 27%) 0%,
+      hsl(262 42% 12%) 50%,
+      hsl(269 52% 27%) 100%
     );
   --frame-950: hsl(228 23% 7%);
   --frame-900: hsl(231 20% 11%);
@@ -52,20 +65,20 @@
   --copper-500: #ae6f3e;
   --copper-600: #8b532a;
   --rating-gold: #b88712;
-  --gold-50: #fbf4e7;
-  --gold-100: #f2e4c8;
-  --gold-200: #e6d0a7;
-  --gold-surface: #f4e7cc;
-  --gold-surface-2: #ecd8b3;
+  --gold-50: hsl(38 42% 84%);
+  --gold-100: hsl(35 38% 74%);
+  --gold-200: hsl(32 34% 61%);
+  --gold-surface: hsl(35 39% 71%);
+  --gold-surface-2: hsl(32 35% 60%);
   --gold-grad: linear-gradient(
     180deg,
-    rgba(251, 244, 231, 0.98) 0%,
-    rgba(236, 216, 179, 0.88) 100%
+    hsl(38 42% 86% / 0.97) 0%,
+    hsl(33 36% 61% / 0.92) 100%
   );
   --ink: #1f2937;
   --ink-muted: #4b5563;
-  --border-subtle: rgba(84, 66, 36, 0.22);
-  --shadow-soft: 0 14px 30px -24px rgba(62, 46, 22, 0.26);
+  --border-subtle: hsl(31 32% 28% / 0.34);
+  --shadow-soft: 0 16px 32px -24px hsl(29 34% 18% / 0.38);
   --card-bg: #ffffff;
   --card-border: rgba(15, 23, 42, 0.08);
   --shadow-1: 0 12px 28px -22px rgba(16, 24, 40, 0.35);
@@ -152,33 +165,11 @@ summary:focus-visible {
 }
 
 .surface-purple {
-  background: radial-gradient(
-      140% 105% at 50% 14%,
-      hsl(274 58% 43% / 0.48) 0%,
-      hsl(272 56% 32% / 0.16) 36%,
-      transparent 62%
-    ),
-    linear-gradient(
-      180deg,
-      hsl(264 46% 20%) 0%,
-      hsl(266 49% 24%) 54%,
-      hsl(262 42% 13%) 100%
-    );
+  background: var(--purple-grad);
 }
 
 .surface-purple-alt {
-  background: radial-gradient(
-      130% 95% at 78% 16%,
-      hsl(274 58% 44% / 0.42) 0%,
-      hsl(272 56% 32% / 0.14) 34%,
-      transparent 60%
-    ),
-    linear-gradient(
-      180deg,
-      hsl(266 49% 23%) 0%,
-      hsl(264 46% 18%) 52%,
-      hsl(262 42% 12%) 100%
-    );
+  background: var(--purple-grad-2);
 }
 
 .surface-purple-soft {
@@ -212,10 +203,10 @@ summary:focus-visible {
 .card-gold-soft {
   background: linear-gradient(
     180deg,
-    rgba(251, 244, 231, 0.95) 0%,
-    rgba(236, 216, 179, 0.72) 100%
+    hsl(38 42% 86% / 0.95) 0%,
+    hsl(32 35% 60% / 0.78) 100%
   );
-  border: 1px solid rgba(84, 66, 36, 0.18);
+  border: 1px solid hsl(31 32% 28% / 0.28);
   box-shadow: var(--shadow-soft);
 }
 

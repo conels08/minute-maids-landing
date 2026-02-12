@@ -100,6 +100,13 @@ export default function Header() {
               </a>
             ))}
             <a
+              href={telHref}
+              className="rounded-full border border-zinc-300 bg-white px-3 py-1.5 text-sm font-semibold text-zinc-800 ring-purple"
+              aria-label={`Call ${site.phoneDisplay}`}
+            >
+              Call {site.phoneDisplay}
+            </a>
+            <a
               href="#estimate"
               className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
             >
