@@ -18,37 +18,37 @@
   --purple-grad: radial-gradient(
       145% 74% at 50% 6%,
       hsl(272 58% 42% / 0.34) 0%,
-      hsl(272 58% 42% / 0.1) 42%,
-      transparent 74%
+      hsl(272 58% 42% / 0.1) 48%,
+      transparent 80%
     ),
     radial-gradient(
       145% 74% at 50% 94%,
       hsl(272 58% 42% / 0.3) 0%,
-      hsl(272 58% 42% / 0.08) 42%,
-      transparent 74%
+      hsl(272 58% 42% / 0.08) 48%,
+      transparent 80%
     ),
     linear-gradient(
       180deg,
       hsl(266 49% 25%) 0%,
-      hsl(262 42% 12%) 50%,
+      hsl(262 42% 18%) 50%,
       hsl(266 49% 25%) 100%
     );
   --purple-grad-2: radial-gradient(
       140% 72% at 40% 8%,
       hsl(274 58% 44% / 0.34) 0%,
-      hsl(274 58% 44% / 0.09) 40%,
-      transparent 72%
+      hsl(274 58% 44% / 0.09) 46%,
+      transparent 78%
     ),
     radial-gradient(
       140% 72% at 60% 92%,
       hsl(274 58% 44% / 0.3) 0%,
-      hsl(274 58% 44% / 0.08) 40%,
-      transparent 72%
+      hsl(274 58% 44% / 0.08) 46%,
+      transparent 78%
     ),
     linear-gradient(
       180deg,
       hsl(269 52% 27%) 0%,
-      hsl(262 42% 12%) 50%,
+      hsl(262 42% 18%) 50%,
       hsl(269 52% 27%) 100%
     );
   --frame-950: hsl(228 23% 7%);
