@@ -4,57 +4,33 @@ import { useEffect, useRef, useState } from "react";
 import Section from "@/components/ui/Section";
 
 const GUIDE_URL = "/docs/Minute-Maids-residential-service-guide.pdf";
-const FOCUSABLE_SELECTOR =
-  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export default function PricingGuide() {
   const [showPreview, setShowPreview] = useState(false);
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const previewTriggerRef = useRef<HTMLButtonElement>(null);
-  const previewPanelRef = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!showPreview) return;
-
-    const previousOverflow = document.body.style.overflow;
-    const trigger = previewTriggerRef.current;
-
-    document.body.style.overflow = "hidden";
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setShowPreview(false);
-        return;
-      }
-
-      if (event.key !== "Tab") return;
-      const focusables = previewPanelRef.current?.querySelectorAll<HTMLElement>(
-        FOCUSABLE_SELECTOR
-      );
-      if (!focusables || focusables.length === 0) return;
-
-      const first = focusables[0];
-      const last = focusables[focusables.length - 1];
-
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
     requestAnimationFrame(() => {
-      closeButtonRef.current?.focus();
-    });
+      const previewEl = previewRef.current;
+      if (!previewEl) return;
 
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", onKeyDown);
-      trigger?.focus();
-    };
+      const header = document.querySelector("header");
+      const headerH =
+        header instanceof HTMLElement
+          ? header.getBoundingClientRect().height
+          : 64;
+      const rect = previewEl.getBoundingClientRect();
+      const y = window.scrollY + rect.top;
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      window.scrollTo({
+        top: Math.max(0, y - headerH - 12),
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    });
   }, [showPreview]);
 
   return (
@@ -79,12 +55,11 @@ export default function PricingGuide() {
             View pricing guide (PDF)
           </a>
           <button
-            ref={previewTriggerRef}
             type="button"
-            onClick={() => setShowPreview(true)}
+            onClick={() => setShowPreview((v) => !v)}
             className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 ring-purple"
           >
-            Preview
+            {showPreview ? "Hide preview" : "Preview"}
           </button>
           <a
             href={GUIDE_URL}
@@ -98,47 +73,38 @@ export default function PricingGuide() {
 
       {showPreview && (
         <div
-          className="fixed inset-0 z-[100] bg-black/70 p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Pricing guide PDF preview"
-          onClick={() => setShowPreview(false)}
+          ref={previewRef}
+          className="mt-5 overflow-hidden rounded-2xl border border-zinc-200 bg-white"
         >
           <div
-            ref={previewPanelRef}
-            className="mx-auto flex h-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-white shadow-xl"
-            onClick={(e) => e.stopPropagation()}
+            className="flex items-center justify-between gap-3 border-b border-zinc-200 px-5 py-4"
           >
-            <div className="flex items-center justify-between gap-3 border-b border-zinc-200 px-5 py-4">
-              <p className="text-sm font-semibold text-zinc-900">
-                Minute Maids Service Guide (PDF)
-              </p>
-              <div className="flex items-center gap-2">
-                <a
-                  href={GUIDE_URL}
-                  download
-                  className="rounded-full border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50"
-                >
-                  Download PDF
-                </a>
-                <button
-                  ref={closeButtonRef}
-                  type="button"
-                  onClick={() => setShowPreview(false)}
-                  className="rounded-full border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50"
-                >
-                  Close
-                </button>
-              </div>
+            <p className="text-sm font-semibold text-zinc-900">
+              Minute Maids Service Guide (PDF)
+            </p>
+            <div className="flex items-center gap-2">
+              <a
+                href={GUIDE_URL}
+                download
+                className="rounded-full border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50"
+              >
+                Download PDF
+              </a>
+              <button
+                type="button"
+                onClick={() => setShowPreview(false)}
+                className="rounded-full border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50"
+              >
+                Hide preview
+              </button>
             </div>
-
-            <div className="min-h-0 flex-1 bg-zinc-100 p-2 sm:p-3">
-              <iframe
-                title="Minute Maids service guide PDF"
-                src={GUIDE_URL}
-                className="h-full w-full rounded-2xl border border-zinc-200 bg-white"
-              />
-            </div>
+          </div>
+          <div className="bg-zinc-100 p-2 sm:p-3">
+            <iframe
+              title="Minute Maids service guide PDF"
+              src={GUIDE_URL}
+              className="h-[70vh] w-full rounded-2xl border border-zinc-200 bg-white"
+            />
           </div>
         </div>
       )}

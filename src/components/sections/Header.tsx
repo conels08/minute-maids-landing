@@ -81,7 +81,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur border-purple-soft">
+      <header className="sticky top-0 z-50 border-b border-purple-soft bg-white backdrop-blur">
         <Container className="flex h-16 items-center justify-between gap-3">
           <Link href="/" className="flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center sm:h-10 sm:w-10">
@@ -103,7 +103,7 @@ export default function Header() {
           </Link>
 
           <nav
-            className="hidden min-w-0 items-center gap-4 md:flex lg:gap-6"
+            className="hidden min-w-0 items-center gap-4 lg:flex lg:gap-6"
             aria-label="Primary"
           >
             {nav.map((item) => (
@@ -139,7 +139,7 @@ export default function Header() {
             </a>
           </nav>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <a
               href="#estimate"
               className="rounded-xl bg-zinc-900 px-3 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
@@ -166,7 +166,7 @@ export default function Header() {
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-[60] md:hidden" role="dialog" aria-modal="true" aria-label="Mobile menu">
+        <div className="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Mobile menu">
           <div
             className="absolute inset-0 bg-black/40"
             onClick={() => setOpen(false)}
