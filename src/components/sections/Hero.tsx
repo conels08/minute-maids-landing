@@ -3,7 +3,10 @@ import { site } from "@/lib/site";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative scroll-mt-24 overflow-hidden surface-purple">
+    <section
+      id="top"
+      className="relative scroll-mt-24 overflow-hidden surface-purple texture-overlay hero-glow"
+    >
       <Container className="py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-2xl text-center">
           {/* Trust pill */}

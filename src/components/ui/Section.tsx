@@ -16,7 +16,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`scroll-mt-24 py-12 sm:py-16 lg:py-20 surface-purple ${className}`}
+      className={`scroll-mt-24 py-12 sm:py-16 lg:py-20 surface-purple texture-overlay ${className}`}
     >
       <Container>
         {(eyebrow || title) && (

@@ -89,26 +89,36 @@ export default function Header() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
+          <nav
+            className="hidden min-w-0 items-center gap-4 md:flex lg:gap-6"
+            aria-label="Primary"
+          >
             {nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-zinc-700 hover:text-zinc-900 accent-copper-link"
+                className="whitespace-nowrap text-sm font-medium text-zinc-700 hover:text-zinc-900 accent-copper-link"
               >
                 {item.label}
               </a>
             ))}
             <a
               href={telHref}
-              className="rounded-full border border-zinc-300 bg-white px-3 py-1.5 text-sm font-semibold text-zinc-800 ring-purple"
+              className="hidden whitespace-nowrap rounded-full border border-zinc-300 bg-white px-3 py-2 text-sm font-semibold text-zinc-800 ring-purple lg:inline-flex lg:shrink-0"
+              aria-label={`Call ${site.phoneDisplay}`}
+            >
+              Call {site.phoneDisplay}
+            </a>
+            <a
+              href={telHref}
+              className="inline-flex shrink-0 whitespace-nowrap rounded-full border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 ring-purple lg:hidden"
               aria-label={`Call ${site.phoneDisplay}`}
             >
               Call {site.phoneDisplay}
             </a>
             <a
               href="#estimate"
-              className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
+              className="shrink-0 whitespace-nowrap rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
             >
               Get Estimate
             </a>
