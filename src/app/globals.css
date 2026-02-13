@@ -33,6 +33,9 @@
   --copper-400: #c48957;
   --copper-500: #ae6f3e;
   --copper-600: #8b532a;
+  --accent-bronze: hsl(31 50% 38%);
+  --accent-bronze-light: hsl(33 36% 56% / 0.58);
+  --ink-dark: hsl(220 22% 18%);
   --rating-gold: #b88712;
   --gold-50: hsl(40 46% 88%);
   --gold-100: hsl(38 40% 77%);
@@ -262,6 +265,55 @@ summary:focus-visible {
 
 .text-on-gold {
   color: var(--ink);
+}
+
+.text-ink-dark {
+  color: var(--ink-dark);
+}
+
+.text-accent-bronze {
+  color: var(--accent-bronze);
+}
+
+.border-accent-bronze-light {
+  border-color: var(--accent-bronze-light);
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent-bronze), 0 0 0 4px hsl(0 0% 100% / 0.92);
+}
+
+.navlink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navlink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent-bronze);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease, opacity 180ms ease;
+  opacity: 0.9;
+}
+
+.navlink:hover::after,
+.navlink:focus-visible::after,
+.navlink[aria-current="page"]::after,
+.navlink.is-active::after {
+  transform: scaleX(1);
 }
 
 .border-purple {

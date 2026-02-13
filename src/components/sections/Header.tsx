@@ -16,10 +16,22 @@ const nav = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState<string>("");
   const panelRef = useRef<HTMLDivElement>(null);
 
   const telHref = `tel:${site.phoneTel}`;
   const smsHref = `sms:${site.phoneTel}`;
+
+  useEffect(() => {
+    const updateActiveFromHash = () => {
+      if (typeof window === "undefined") return;
+      setActiveHref(window.location.hash || "");
+    };
+
+    updateActiveFromHash();
+    window.addEventListener("hashchange", updateActiveFromHash);
+    return () => window.removeEventListener("hashchange", updateActiveFromHash);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -62,7 +74,8 @@ export default function Header() {
     };
   }, [open]);
 
-  function handleNavClick() {
+  function handleNavClick(href?: string) {
+    if (href) setActiveHref(href);
     setOpen(false);
   }
 
@@ -82,10 +95,10 @@ export default function Header() {
               />
             </span>
             <div className="leading-tight">
-              <p className="text-sm font-semibold text-zinc-900">
+              <p className="text-xs font-semibold text-zinc-900 sm:text-sm">
                 {site.businessName}
               </p>
-              <p className="text-xs text-zinc-600">{site.serviceArea}</p>
+              <p className="text-[11px] text-zinc-600 sm:text-xs">{site.serviceArea}</p>
             </div>
           </Link>
 
@@ -97,21 +110,23 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="whitespace-nowrap text-sm font-medium text-zinc-700 hover:text-zinc-900 accent-copper-link"
+                aria-current={activeHref === item.href ? "page" : undefined}
+                onClick={() => handleNavClick(item.href)}
+                className="navlink whitespace-nowrap text-sm font-medium text-ink-dark transition-colors duration-200 ease-in-out hover:text-accent-bronze focus-visible:text-accent-bronze active:text-accent-bronze focus-ring lg:text-[15px]"
               >
                 {item.label}
               </a>
             ))}
             <a
               href={telHref}
-              className="hidden whitespace-nowrap rounded-full border border-zinc-300 bg-white px-3 py-2 text-sm font-semibold text-zinc-800 ring-purple lg:inline-flex lg:shrink-0"
+              className="hidden whitespace-nowrap rounded-full border border-accent-bronze-light bg-white px-3 py-2 text-sm font-semibold text-ink-dark ring-purple transition-colors duration-200 ease-in-out hover:border-[var(--accent-bronze)] hover:text-accent-bronze focus-visible:border-[var(--accent-bronze)] focus-visible:text-accent-bronze focus-ring lg:inline-flex lg:shrink-0"
               aria-label={`Call ${site.phoneDisplay}`}
             >
               Call {site.phoneDisplay}
             </a>
             <a
               href={telHref}
-              className="inline-flex shrink-0 whitespace-nowrap rounded-full border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 ring-purple lg:hidden"
+              className="inline-flex shrink-0 whitespace-nowrap rounded-full border border-accent-bronze-light bg-white px-3 py-2 text-xs font-semibold text-ink-dark ring-purple transition-colors duration-200 ease-in-out hover:border-[var(--accent-bronze)] hover:text-accent-bronze focus-visible:border-[var(--accent-bronze)] focus-visible:text-accent-bronze focus-ring lg:hidden"
               aria-label={`Call ${site.phoneDisplay}`}
             >
               Call {site.phoneDisplay}
@@ -178,7 +193,7 @@ export default function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={handleNavClick}
+                  onClick={() => handleNavClick(item.href)}
                   className="rounded-xl border border-zinc-200 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 ring-purple"
                 >
                   {item.label}
@@ -189,14 +204,14 @@ export default function Header() {
             <div className="mt-6 grid gap-2">
               <a
                 href="#estimate"
-                onClick={handleNavClick}
+                onClick={() => handleNavClick("#estimate")}
                 className="rounded-xl bg-zinc-900 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
               >
                 Get Estimate
               </a>
               <a
                 href={telHref}
-                onClick={handleNavClick}
+                onClick={() => handleNavClick()}
                 className="rounded-xl border border-zinc-200 px-4 py-3 text-center text-sm font-semibold text-zinc-900 ring-purple"
               >
                 Call {site.phoneDisplay}
