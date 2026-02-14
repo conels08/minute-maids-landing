@@ -46,8 +46,7 @@ export default function Reviews() {
           <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-4">
             <p className="text-sm font-semibold text-zinc-900">Tip</p>
             <p className="mt-1 text-sm text-zinc-700">
-              See more public feedback on Google while we finalize the direct
-              profile link.
+              To see more reviews or leave one of your own, click below!
             </p>
             <a
               href="https://share.google/qmwyhOB1SbcHUKO8Q"
