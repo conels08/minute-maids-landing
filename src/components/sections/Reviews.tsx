@@ -23,6 +23,18 @@ function Stars({ count }: { count: number }) {
   );
 }
 
+function EmptyStars() {
+  return (
+    <div className="flex items-center gap-1" aria-label="No rating yet">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span key={i} className="text-zinc-300">
+          ☆
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export default function Reviews() {
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
@@ -46,7 +58,7 @@ export default function Reviews() {
           <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-4">
             <p className="text-sm font-semibold text-zinc-900">Tip</p>
             <p className="mt-1 text-sm text-zinc-700">
-              To see more reviews or leave one of your own, click below!
+              Want to learn more about what people are saying? Click below!
             </p>
             <a
               href="https://share.google/qmwyhOB1SbcHUKO8Q"
@@ -61,6 +73,30 @@ export default function Reviews() {
         </div>
 
         <div className="lg:col-span-2 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 card-premium">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-sm font-semibold text-zinc-900">Your feedback</p>
+                <p className="mt-1 text-xs text-zinc-500">Google</p>
+              </div>
+              <EmptyStars />
+            </div>
+
+            <p className="mt-4 text-sm leading-relaxed text-zinc-700">
+              Help future clients by sharing your experience with Minute Maids.
+            </p>
+
+            <a
+              href="https://g.page/r/CaILO7OEJQRLEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Write a Google review"
+              className="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-xl border border-accent-bronze-light bg-white px-4 py-2 text-sm font-semibold text-ink-dark transition-colors duration-200 ease-in-out hover:border-[var(--accent-bronze)] hover:text-accent-bronze focus-ring"
+            >
+              Review Minute Maids
+            </a>
+          </div>
+
           {reviews.map((r, idx) => (
             <div
               key={idx}
