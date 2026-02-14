@@ -1,5 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import Section from "@/components/ui/Section";
 import { reviews } from "@/lib/reviews";
+
+const REVIEW_PREVIEW_LENGTH = 180;
 
 function Stars({ count }: { count: number }) {
   return (
@@ -19,6 +24,8 @@ function Stars({ count }: { count: number }) {
 }
 
 export default function Reviews() {
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+
   return (
     <Section
       id="reviews"
@@ -43,9 +50,10 @@ export default function Reviews() {
               profile link.
             </p>
             <a
-              href="https://www.google.com/search?q=Minute+Maids+reviews"
+              href="https://share.google/qmwyhOB1SbcHUKO8Q"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="Read Minute Maids reviews on Google (opens in a new tab)"
               className="mt-3 inline-flex min-h-[44px] items-center justify-center rounded-2xl bg-zinc-900 px-4 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
             >
               Read more on Google
@@ -70,8 +78,29 @@ export default function Reviews() {
               </div>
 
               <p className="mt-4 text-sm leading-relaxed text-zinc-700">
-                “{r.text}”
+                {(() => {
+                  const shouldTruncate = r.text.length > REVIEW_PREVIEW_LENGTH;
+                  const isExpanded = expanded[idx] ?? false;
+                  const displayText =
+                    shouldTruncate && !isExpanded
+                      ? `${r.text.slice(0, REVIEW_PREVIEW_LENGTH).trimEnd()}...`
+                      : r.text;
+
+                  return <>“{displayText}”</>;
+                })()}
               </p>
+
+              {r.text.length > REVIEW_PREVIEW_LENGTH && (
+                <button
+                  type="button"
+                  onClick={() =>
+                    setExpanded((prev) => ({ ...prev, [idx]: !(prev[idx] ?? false) }))
+                  }
+                  className="mt-2 text-xs font-semibold text-accent-bronze hover:underline focus-ring rounded"
+                >
+                  {expanded[idx] ? "Show less" : "Read more"}
+                </button>
+              )}
             </div>
           ))}
         </div>
