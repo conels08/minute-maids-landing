@@ -20,26 +20,27 @@ export function resolveSiteUrl(): string {
   const fallbackUrl = site.url?.trim();
   const previewUrl = process.env.URL?.trim();
   const isProduction = process.env.NODE_ENV === "production";
+  const nonProdFallback = previewUrl || "http://localhost:3000";
 
-  const selected =
+  let selected =
     envUrl ||
     fallbackUrl ||
-    (!isProduction ? previewUrl : undefined) ||
-    (!isProduction ? "http://localhost:3000" : "");
+    (!isProduction ? nonProdFallback : "");
 
-  const normalized = selected.replace(/\/$/, "");
+  selected = selected.replace(/\/$/, "");
 
-  if (!normalized) {
+  if (isProduction && (!selected || selected.includes("example.com"))) {
+    console.warn(
+      `[SEO] Invalid production site URL resolved (${selected || "empty"}). Falling back to canonical site.url (${fallbackUrl}).`
+    );
+    selected = fallbackUrl.replace(/\/$/, "");
+  }
+
+  if (!selected) {
     throw new Error(
-      "Site URL is not configured. Set NEXT_PUBLIC_SITE_URL for production."
+      "Site URL is not configured. Set NEXT_PUBLIC_SITE_URL or site.url."
     );
   }
 
-  if (isProduction && normalized.includes("example.com")) {
-    throw new Error(
-      `Invalid production site URL (${normalized}). Configure NEXT_PUBLIC_SITE_URL or site.url with the canonical domain.`
-    );
-  }
-
-  return normalized;
+  return selected;
 }
