@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { createPortal } from "react-dom";
 import Section from "@/components/ui/Section";
 import { reviews } from "@/lib/reviews";
 
@@ -37,6 +39,51 @@ function EmptyStars() {
 
 export default function Reviews() {
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+  const [lightbox, setLightbox] = useState<{
+    reviewIndex: number;
+    imageIndex: number;
+  } | null>(null);
+  const lastTriggerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!lightbox) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setLightbox(null);
+        return;
+      }
+
+      const images = reviews[lightbox.reviewIndex]?.images;
+      if (!images || images.length < 2) return;
+
+      if (event.key === "ArrowRight") {
+        setLightbox((prev) =>
+          prev
+            ? {
+                ...prev,
+                imageIndex: (prev.imageIndex + 1) % images.length,
+              }
+            : prev
+        );
+      } else if (event.key === "ArrowLeft") {
+        setLightbox((prev) =>
+          prev
+            ? {
+                ...prev,
+                imageIndex: (prev.imageIndex - 1 + images.length) % images.length,
+              }
+            : prev
+        );
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      lastTriggerRef.current?.focus();
+    };
+  }, [lightbox]);
 
   return (
     <Section
@@ -136,10 +183,126 @@ export default function Reviews() {
                   {expanded[idx] ? "Show less" : "Read more"}
                 </button>
               )}
+
+              {r.images?.length ? (
+                <div className="mt-3">
+                  <p className="text-xs font-semibold text-zinc-600">Photos</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {r.images.map((image, imageIdx) => (
+                      <button
+                        key={image.src}
+                        type="button"
+                        onClick={(event) => {
+                          lastTriggerRef.current = event.currentTarget;
+                          setLightbox({ reviewIndex: idx, imageIndex: imageIdx });
+                        }}
+                        className="group relative h-16 w-16 overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm focus-ring sm:h-20 sm:w-20"
+                        aria-label={`Open review photo: ${image.alt}`}
+                      >
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          fill
+                          className="object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+                          sizes="(max-width: 640px) 64px, 80px"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
           ))}
         </div>
       </div>
+
+      {typeof document !== "undefined" &&
+      lightbox &&
+      reviews[lightbox.reviewIndex]?.images
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-[120] bg-black/60 p-4"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Review photo preview"
+              onClick={() => setLightbox(null)}
+            >
+              <div
+                className="mx-auto flex h-full max-h-[85vh] w-full max-w-[92vw] flex-col overflow-hidden rounded-2xl bg-white"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <div className="flex items-center justify-between border-b border-zinc-200 p-3">
+                  <p className="text-sm font-semibold text-zinc-900">Review photo</p>
+                  <button
+                    type="button"
+                    onClick={() => setLightbox(null)}
+                    className="rounded-lg border border-zinc-300 px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50 focus-ring"
+                  >
+                    Close
+                  </button>
+                </div>
+
+                <div className="relative min-h-0 flex-1 bg-zinc-100">
+                  <Image
+                    src={reviews[lightbox.reviewIndex].images![lightbox.imageIndex].src}
+                    alt={reviews[lightbox.reviewIndex].images![lightbox.imageIndex].alt}
+                    fill
+                    className="object-contain"
+                    sizes="92vw"
+                  />
+                </div>
+
+                {reviews[lightbox.reviewIndex].images!.length > 1 ? (
+                  <div className="flex items-center justify-between border-t border-zinc-200 p-3">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setLightbox((prev) =>
+                          prev
+                            ? {
+                                ...prev,
+                                imageIndex:
+                                  (prev.imageIndex -
+                                    1 +
+                                    reviews[prev.reviewIndex].images!.length) %
+                                  reviews[prev.reviewIndex].images!.length,
+                              }
+                            : prev
+                        )
+                      }
+                      className="rounded-lg border border-zinc-300 px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50 focus-ring"
+                    >
+                      Previous
+                    </button>
+                    <p className="text-xs text-zinc-600">
+                      {lightbox.imageIndex + 1} /{" "}
+                      {reviews[lightbox.reviewIndex].images!.length}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setLightbox((prev) =>
+                          prev
+                            ? {
+                                ...prev,
+                                imageIndex:
+                                  (prev.imageIndex + 1) %
+                                  reviews[prev.reviewIndex].images!.length,
+                              }
+                            : prev
+                        )
+                      }
+                      className="rounded-lg border border-zinc-300 px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50 focus-ring"
+                    >
+                      Next
+                    </button>
+                  </div>
+                ) : null}
+              </div>
+            </div>,
+            document.body
+          )
+        : null}
     </Section>
   );
 }
