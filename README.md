@@ -67,7 +67,7 @@ Set these in Netlify (and optionally local `.env.local`):
 
 - `NEXT_PUBLIC_SITE_URL`
   - Public base URL for canonical links, sitemap, robots, and structured data
-  - Example: `https://www.yourdomain.com`
+  - Production value: `https://minutemaidsclean.com`
 
 ## Local Development
 
@@ -162,6 +162,8 @@ This site includes an inexpensive SEO package designed to provide a strong basel
 ### Production setup note
 
 Set `NEXT_PUBLIC_SITE_URL` in the deployment environment so canonical URLs, robots sitemap URL, and structured data all use the correct live domain.
+
+- Canonical domain for this project: `https://minutemaidsclean.com` (non-www)
 
 ## Handoff / Business Operations
 

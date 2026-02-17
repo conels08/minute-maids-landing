@@ -1,42 +1,60 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { site } from "@/lib/site";
+import { resolveSiteUrl, site } from "@/lib/site";
 import { reviews } from "@/lib/reviews";
 
-const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  site.url ??
-  process.env.URL ??
-  "https://example.com"
-).replace(/\/$/, "");
+const siteUrl = resolveSiteUrl();
 
 const seoTitle = "House Cleaning in Newberg, OR | Minute Maids";
 const seoDescription =
   "Owner-operated house cleaning in Newberg, Sherwood, McMinnville & Lafayette, OR. Deep cleans, recurring service, move-out cleans. Get a free estimate.";
 const ogImagePath = "/images/Minute-Maid-logo-official.png";
+const ogImageUrl = `${siteUrl}${ogImagePath}`;
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "HouseCleaningService",
   name: site.businessName,
   url: siteUrl,
+  logo: `${siteUrl}/images/minute-maids-logo-transparent.png`,
+  image: [ogImageUrl],
   telephone: site.phoneDisplay,
   areaServed: [
     {
       "@type": "Place",
       name: "Newberg, OR",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "OR",
+        addressCountry: "US",
+      },
     },
     {
       "@type": "Place",
       name: "Sherwood, OR",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "OR",
+        addressCountry: "US",
+      },
     },
     {
       "@type": "Place",
       name: "McMinnville, OR",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "OR",
+        addressCountry: "US",
+      },
     },
     {
       "@type": "Place",
       name: "Lafayette, OR",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "OR",
+        addressCountry: "US",
+      },
     },
   ],
   serviceType: [
@@ -100,7 +118,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: ogImagePath,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
       },
@@ -110,7 +128,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seoTitle,
     description: seoDescription,
-    images: [ogImagePath],
+    images: [ogImageUrl],
   },
 };
 
