@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="minute-maids-first-clean-badge-starburst.svg"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.3992406"
+     inkscape:cx="248.349"
+     inkscape:cy="264.78648"
+     inkscape:window-width="1512"
+     inkscape:window-height="862"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <defs
+     id="defs3">
+    <radialGradient
+       id="gold"
+       cx="50%"
+       cy="45%"
+       r="60%">
+      <stop
+         offset="0%"
+         stop-color="#FFD76A"
+         id="stop1" />
+      <stop
+         offset="60%"
+         stop-color="#E2A323"
+         id="stop2" />
+      <stop
+         offset="100%"
+         stop-color="#B77A0E"
+         id="stop3" />
+    </radialGradient>
+  </defs>
+  <path
+     d="M 476.00,256.00 L 455.38,271.69 L 473.29,290.42 L 450.47,302.69 L 465.23,323.98 L 440.78,332.54 L 452.02,355.88 L 426.53,360.50 L 433.98,385.31 L 408.08,385.89 L 411.56,411.56 L 385.89,408.08 L 385.31,433.98 L 360.50,426.53 L 355.88,452.02 L 332.54,440.78 L 323.98,465.23 L 302.69,450.47 L 290.42,473.29 L 271.69,455.38 L 256.00,476.00 L 240.31,455.38 L 221.58,473.29 L 209.31,450.47 L 188.02,465.23 L 179.46,440.78 L 156.12,452.02 L 151.50,426.53 L 126.69,433.98 L 126.11,408.08 L 100.44,411.56 L 103.92,385.89 L 78.02,385.31 L 85.47,360.50 L 59.98,355.88 L 71.22,332.54 L 46.77,323.98 L 61.53,302.69 L 38.71,290.42 L 56.62,271.69 L 36.00,256.00 L 56.62,240.31 L 38.71,221.58 L 61.53,209.31 L 46.77,188.02 L 71.22,179.46 L 59.98,156.12 L 85.47,151.50 L 78.02,126.69 L 103.92,126.11 L 100.44,100.44 L 126.11,103.92 L 126.69,78.02 L 151.50,85.47 L 156.12,59.98 L 179.46,71.22 L 188.02,46.77 L 209.31,61.53 L 221.58,38.71 L 240.31,56.62 L 256.00,36.00 L 271.69,56.62 L 290.42,38.71 L 302.69,61.53 L 323.98,46.77 L 332.54,71.22 L 355.88,59.98 L 360.50,85.47 L 385.31,78.02 L 385.89,103.92 L 411.56,100.44 L 408.08,126.11 L 433.98,126.69 L 426.53,151.50 L 452.02,156.12 L 440.78,179.46 L 465.23,188.02 L 450.47,209.31 L 473.29,221.58 L 455.38,240.31 Z"
+     fill="url(#gold)"
+     id="path3" />
+  <g
+     fill="#3b2a00"
+     font-family="Arial, Helvetica, sans-serif"
+     text-anchor="middle"
+     id="g4"
+     transform="matrix(1.1521869,0,0,1.3488408,-37.868529,-84.852526)">
+    <text
+       x="256"
+       y="246"
+       font-size="46px"
+       font-weight="bold"
+       id="text3">20% OFF</text>
+    <text
+       x="256"
+       y="296"
+       font-size="40px"
+       font-weight="bold"
+       id="text4">FIRST CLEAN</text>
+  </g>
+</svg>
