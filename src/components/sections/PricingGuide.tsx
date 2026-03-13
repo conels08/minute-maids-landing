@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Section from "@/components/ui/Section";
 
-const GUIDE_URL = "/docs/Minute-Maids-residential-service-guide.pdf";
+const GUIDE_URL = "/docs/Minute-Maids-Residential-Service-Guide.pdf";
 
 export default function PricingGuide() {
   const [showPreview, setShowPreview] = useState(false);
