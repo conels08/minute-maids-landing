@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Container from "@/components/ui/Container";
 import { site } from "@/lib/site";
 
@@ -43,6 +46,62 @@ function PromoBadge({
 }
 
 export default function Hero() {
+  const leftBadgeRef = useRef<HTMLDivElement>(null);
+  const rightBadgeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const leftBadge = leftBadgeRef.current;
+    const rightBadge = rightBadgeRef.current;
+
+    if (!leftBadge || !rightBadge) return;
+
+    const desktopMedia = window.matchMedia("(min-width: 768px)");
+    const reducedMotionMedia = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    let frameId = 0;
+
+    const applyOffsets = () => {
+      frameId = 0;
+
+      if (!desktopMedia.matches || reducedMotionMedia.matches) {
+        leftBadge.style.setProperty("--badge-offset-y", "0px");
+        rightBadge.style.setProperty("--badge-offset-y", "0px");
+        return;
+      }
+
+      const baseOffset = Math.min(window.scrollY * 0.05, 12);
+      leftBadge.style.setProperty("--badge-offset-y", `${baseOffset}px`);
+      rightBadge.style.setProperty(
+        "--badge-offset-y",
+        `${Math.min(baseOffset * 1.15, 14)}px`
+      );
+    };
+
+    const requestUpdate = () => {
+      if (frameId) return;
+      frameId = window.requestAnimationFrame(applyOffsets);
+    };
+
+    requestUpdate();
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    desktopMedia.addEventListener("change", requestUpdate);
+    reducedMotionMedia.addEventListener("change", requestUpdate);
+
+    return () => {
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      desktopMedia.removeEventListener("change", requestUpdate);
+      reducedMotionMedia.removeEventListener("change", requestUpdate);
+    };
+  }, []);
+
   return (
     <section
       id="top"
@@ -55,13 +114,19 @@ export default function Hero() {
             aria-hidden="true"
           >
             <div className="relative min-h-[148px] xl:min-h-[164px]">
-              <div className="absolute left-6 top-2 xl:left-4 xl:top-0">
+              <div
+                ref={leftBadgeRef}
+                className="hero-badge hero-badge-left absolute left-6 top-2 xl:left-4 xl:top-0"
+              >
                 <PromoBadge
                   {...badges[0]}
                   className={badges[0].desktopWidthClassName}
                 />
               </div>
-              <div className="absolute right-5 -top-0.5 xl:right-3 xl:-top-0.5">
+              <div
+                ref={rightBadgeRef}
+                className="hero-badge hero-badge-right absolute right-5 -top-0.5 xl:right-3 xl:-top-0.5"
+              >
                 <PromoBadge
                   {...badges[1]}
                   className={badges[1].desktopWidthClassName}

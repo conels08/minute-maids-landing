@@ -320,6 +320,23 @@ summary:focus-visible {
   border-color: var(--purple-border);
 }
 
+.hero-badge {
+  --badge-offset-y: 0px;
+  transform: translate3d(0, var(--badge-offset-y), 0);
+  will-change: transform;
+}
+
+.hero-badge img {
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.16));
+}
+
+@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+  .hero-badge {
+    transform: none;
+    will-change: auto;
+  }
+}
+
 .border-purple-soft {
   border-color: var(--purple-border-soft);
 }
