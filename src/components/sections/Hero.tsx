@@ -160,10 +160,17 @@ export default function Hero() {
               A spotless home, without the stress.
             </h1>
 
-            <p className="mx-auto mt-4 max-w-xl text-base text-on-purple-muted sm:text-lg">
-              Professional home cleaning in {site.serviceArea}. Standard & deep
-              cleans, plus add-ons like fridge, oven, and organization.
-            </p>
+            <div className="mx-auto mt-4 max-w-2xl space-y-3 text-on-purple-muted">
+              <p className="text-base sm:text-lg">
+                A tailored, professional cleaning service with transparent
+                pricing offering services suited to you. Let me bring the
+                sparkle to your space so you are able to relax and enjoy.
+              </p>
+              <p className="text-sm font-medium tracking-[0.01em] text-on-purple sm:text-base">
+                Serving Yamhill County and surrounding areas. Standard &amp;
+                Deep cleans, A la Carte specialties, and Move in/ out services.
+              </p>
+            </div>
 
             {/* CTAs */}
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
