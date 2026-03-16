@@ -66,7 +66,7 @@ export default function SpecialsBanner() {
   if (!ENABLE_SPECIAL) return null;
 
   return (
-    <section className="py-6 surface-purple">
+    <section className="py-6">
       <Container>
         <div className="mx-auto w-full max-w-[800px] rounded-2xl bg-white p-4 sm:p-5 card-gold text-on-gold">
           <div className="flex flex-col gap-4 sm:gap-5">

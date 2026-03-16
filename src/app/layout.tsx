@@ -152,7 +152,7 @@ export default function RootLayout({
         <a href="#content" className="skip-link">
           Skip to content
         </a>
-        <main id="content" className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <main id="content" className="w-full">
           {children}
         </main>
       </body>

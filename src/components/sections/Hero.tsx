@@ -105,10 +105,10 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative scroll-mt-24 overflow-hidden surface-purple texture-overlay hero-glow"
+      className="relative scroll-mt-24 overflow-hidden hero-glow"
     >
-      <Container className="py-12 sm:py-16 lg:py-20">
-        <div className="relative mx-auto max-w-5xl">
+      <Container className="py-14 sm:py-20 lg:py-24">
+        <div className="relative mx-auto max-w-6xl">
           <div
             className="pointer-events-none absolute inset-x-0 top-0 hidden lg:block"
             aria-hidden="true"
@@ -116,7 +116,7 @@ export default function Hero() {
             <div className="relative min-h-[148px] xl:min-h-[164px]">
               <div
                 ref={leftBadgeRef}
-                className="hero-badge hero-badge-left absolute left-6 top-2 xl:left-4 xl:top-0"
+                className="hero-badge hero-badge-left absolute left-8 top-3 xl:left-10 xl:top-1"
               >
                 <PromoBadge
                   {...badges[0]}
@@ -125,7 +125,7 @@ export default function Hero() {
               </div>
               <div
                 ref={rightBadgeRef}
-                className="hero-badge hero-badge-right absolute right-5 -top-0.5 xl:right-3 xl:-top-0.5"
+                className="hero-badge hero-badge-right absolute right-8 top-1 xl:right-10 xl:top-0.5"
               >
                 <PromoBadge
                   {...badges[1]}
@@ -135,7 +135,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mx-auto max-w-2xl text-center lg:pt-16 xl:pt-20">
+          <div className="mx-auto max-w-[760px] text-center lg:pt-16 xl:pt-20">
             {/* Trust pill */}
             <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm border-purple-soft sm:text-sm">
               <span className="h-2 w-2 rounded-full bg-brand-500" />
@@ -156,11 +156,11 @@ export default function Hero() {
               />
             </div>
 
-            <h1 className="mt-5 text-3xl font-semibold tracking-tight text-on-purple sm:text-4xl lg:text-5xl">
+            <h1 className="mt-7 text-3xl font-semibold tracking-tight text-on-purple sm:mt-8 sm:text-4xl lg:text-5xl">
               A spotless home, without the stress.
             </h1>
 
-            <div className="mx-auto mt-4 max-w-2xl space-y-3 text-on-purple-muted">
+            <div className="mx-auto mt-5 max-w-[720px] space-y-3 text-on-purple-muted">
               <p className="text-base sm:text-lg">
                 A tailored, professional cleaning service with transparent
                 pricing offering services suited to you. Let me bring the
@@ -173,7 +173,7 @@ export default function Hero() {
             </div>
 
             {/* CTAs */}
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <a
                 href="#estimate"
                 className="min-h-[44px] w-full rounded-2xl bg-zinc-900 px-6 py-3 text-base font-semibold text-white shadow hover:bg-zinc-800 sm:w-auto"
@@ -189,7 +189,7 @@ export default function Hero() {
             </div>
 
             {/* Feature chips */}
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-7 flex flex-wrap justify-center gap-3 sm:mt-8">
               {[
                 "Detailed checklists",
                 "Respectful in your home",

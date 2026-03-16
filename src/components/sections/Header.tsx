@@ -223,7 +223,7 @@ export default function Header() {
 
       {/* Sticky Mobile CTA Bar */}
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-zinc-200 bg-white md:hidden">
-        <div className="mx-auto grid max-w-6xl grid-cols-3 gap-2 px-3 py-2">
+        <div className="site-shell grid grid-cols-3 gap-2 py-2">
           <a
             href={telHref}
             className="flex min-h-[44px] items-center justify-center rounded-xl bg-zinc-900 text-sm font-semibold text-white"

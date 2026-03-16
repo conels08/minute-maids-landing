@@ -77,36 +77,36 @@ export default function Services() {
         {serviceCards.map((card) => (
           <article
             key={card.title}
-            className="flex h-full flex-col rounded-[2rem] p-6 sm:p-7 card-gold-soft text-on-gold"
+            className="flex h-full flex-col rounded-[1.65rem] p-5 sm:p-6 card-gold-soft text-on-gold"
           >
             <div className="flex h-full flex-col">
-              <div>
-                <h3 className="max-w-[14ch] text-[1.7rem] font-semibold leading-tight tracking-tight text-zinc-900 sm:text-[1.9rem]">
+              <div className="text-center">
+                <h3 className="text-[1.45rem] font-semibold leading-[1.15] tracking-tight text-zinc-900 xl:text-[1.58rem]">
                   {card.title}
                 </h3>
-                <p className="mt-3 max-w-[30ch] text-sm leading-6 text-zinc-700 sm:text-[15px]">
+                <p className="mx-auto mt-2.5 max-w-[31ch] text-sm leading-6 text-zinc-700">
                   {card.description}
                 </p>
               </div>
 
-              <div className="mt-10">
-                <p className="text-base font-semibold text-zinc-900 sm:text-lg">
+              <div className="mt-7">
+                <p className="text-center text-[1rem] font-semibold text-zinc-900 sm:text-[1.05rem]">
                   Features Include:
                 </p>
-                <ul className="mt-5 space-y-4" role="list">
+                <ul className="mt-4 space-y-3.5" role="list">
                   {card.features.map((feature) => (
                     <CheckItem key={feature}>{feature}</CheckItem>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-10 flex flex-1 flex-col justify-end">
+              <div className="mt-8 flex flex-1 flex-col justify-end">
                 {card.checklistUrl ? (
                   <a
                     href={card.checklistUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="mb-4 inline-flex items-center justify-center gap-2 self-start rounded-full border border-[hsl(34_26%_52%_/_0.35)] bg-white/70 px-3.5 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[hsl(31_50%_32%)] transition-colors hover:bg-white"
+                    className="mb-3 inline-flex items-center justify-center gap-2 self-center rounded-full border border-[hsl(34_26%_52%_/_0.35)] bg-white/70 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-[hsl(31_50%_32%)] transition-colors hover:bg-white"
                   >
                     <svg
                       aria-hidden="true"
@@ -127,13 +127,13 @@ export default function Services() {
                 ) : null}
                 <a
                   href="#contact"
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-zinc-900 px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-zinc-800"
+                  className="inline-flex min-h-[48px] w-full items-center justify-center rounded-[1.35rem] bg-zinc-900 px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-zinc-800"
                 >
                   Book now
                 </a>
                 <a
                   href="#pricing-guide"
-                  className="mt-5 text-center text-sm font-medium text-zinc-700 underline decoration-[hsl(31_50%_38%_/_0.4)] underline-offset-4 transition-colors hover:text-zinc-900"
+                  className="mt-4 text-center text-sm font-medium text-zinc-700 underline decoration-[hsl(31_50%_38%_/_0.4)] underline-offset-4 transition-colors hover:text-zinc-900"
                 >
                   Compare packages
                 </a>
