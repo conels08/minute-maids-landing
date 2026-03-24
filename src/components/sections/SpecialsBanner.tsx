@@ -5,7 +5,7 @@ import Container from "@/components/ui/Container";
 import Image from "next/image";
 
 const ENABLE_SPECIAL = true;
-const SPECIAL_IMAGE_SRC = "/docs/Spring-ad-2025.png";
+const SPECIAL_IMAGE_SRC = "/docs/Spring-ad-2025-UPDATED.png";
 const SPECIAL_IMAGE_ALT = "Minute Maids spring special flyer";
 const SPECIAL_PREVIEW_LABEL = "Preview spring special flyer image";
 const SPECIAL_DIALOG_LABEL = "Spring special flyer image preview";
