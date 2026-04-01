@@ -29,10 +29,12 @@ const serviceCards = [
     title: "Move-in / Move-out Cleaning",
     description:
       "For homes being prepared before move-in or after move-out.",
+    checklistUrl: "/docs/Move In- Out Cleaning Checklist.pdf",
+    checklistLabel: "View move-in / move-out checklist",
     features: [
-      "Clean light fixtures and interior windows",
-      "Cobweb removal and detailed surface wipe-down",
-      "Vacuum and mop floors with extra detail cleaning",
+      "Clean light fixtures and interior windows plus tracks",
+      "Interior and whole perimeter stove and fridge",
+      "Exterior and interior cabinet wash",
     ],
   },
 ];
