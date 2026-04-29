@@ -80,6 +80,71 @@ const items: Item[] = [
       alt: "Shower head after cleaning",
     },
   },
+  {
+    id: "corner-room",
+    kind: "split",
+    title: "Corner room",
+    before: {
+      src: "/images/corner_room-before.jpeg",
+      alt: "Corner room before cleaning",
+    },
+    after: {
+      src: "/images/corner_room-after.jpeg",
+      alt: "Corner room after cleaning",
+    },
+  },
+  {
+    id: "glass-sink",
+    kind: "split",
+    title: "Glass sink",
+    before: {
+      src: "/images/glass_sink-before.jpeg",
+      alt: "Glass sink before cleaning",
+    },
+    after: {
+      src: "/images/glass_sink-after.jpeg",
+      alt: "Glass sink after cleaning",
+    },
+  },
+  {
+    id: "green-couch",
+    kind: "split",
+    title: "Green couch",
+    before: {
+      src: "/images/green_couch-before.jpeg",
+      alt: "Green couch before cleaning",
+    },
+    after: {
+      src: "/images/green_couch-after.jpeg",
+      alt: "Green couch after cleaning",
+    },
+  },
+  {
+    id: "shower-shelf",
+    kind: "split",
+    title: "Shower shelf",
+    before: {
+      src: "/images/shower_shelf-before.jpeg",
+      alt: "Shower shelf before cleaning",
+    },
+    after: {
+      src: "/images/shower_shelf-after.jpeg",
+      alt: "Shower shelf after cleaning",
+    },
+  },
+  {
+    id: "shower-tiles",
+    kind: "split",
+    title: "Shower tiles",
+    before: {
+      src: "/images/shower_tiles-before.jpeg",
+      alt: "Shower tiles before cleaning",
+    },
+    after: {
+      src: "/images/shower_tiles-after.jpeg",
+      alt: "Shower tiles after cleaning",
+    },
+  },
 ];
 
 export default function Gallery() {
