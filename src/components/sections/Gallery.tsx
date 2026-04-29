@@ -25,12 +25,18 @@ type SplitItem = {
 
 type Item = CombinedItem | SplitItem;
 
-type OpenImage = {
-  src: string;
-  alt: string;
-  title: string;
-  label?: "Before" | "After";
-};
+type SplitSide = "before" | "after";
+
+type OpenImage =
+  | {
+      kind: "combined";
+      item: CombinedItem;
+    }
+  | {
+      kind: "split";
+      item: SplitItem;
+      side: SplitSide;
+    };
 
 const items: Item[] = [
   {
@@ -152,13 +158,68 @@ export default function Gallery() {
   const modalCloseRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
   const modalPanelRef = useRef<HTMLDivElement>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
-  function openFromEvent(
+  const activeImage =
+    openImage?.kind === "combined"
+      ? {
+          src: openImage.item.src,
+          alt: openImage.item.alt,
+          title: openImage.item.title,
+        }
+      : openImage
+        ? {
+            src: openImage.item[openImage.side].src,
+            alt: openImage.item[openImage.side].alt,
+            title: openImage.item.title,
+            label: openImage.side === "before" ? "Before" : "After",
+          }
+        : null;
+
+  function openCombinedFromEvent(
     e: React.MouseEvent<HTMLElement>,
-    nextImage: OpenImage
+    item: CombinedItem
   ) {
     triggerRef.current = e.currentTarget;
-    setOpenImage(nextImage);
+    setOpenImage({ kind: "combined", item });
+  }
+
+  function openSplitFromEvent(
+    e: React.MouseEvent<HTMLElement>,
+    item: SplitItem,
+    side: SplitSide
+  ) {
+    triggerRef.current = e.currentTarget;
+    setOpenImage({ kind: "split", item, side });
+  }
+
+  function setSplitSide(side: SplitSide) {
+    setOpenImage((prev) =>
+      prev?.kind === "split" ? { ...prev, side } : prev
+    );
+  }
+
+  function handleTouchStart(event: React.TouchEvent<HTMLDivElement>) {
+    if (openImage?.kind !== "split") return;
+
+    const touch = event.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  }
+
+  function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
+    if (openImage?.kind !== "split" || !touchStartRef.current) return;
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStartRef.current.x;
+    const deltaY = touch.clientY - touchStartRef.current.y;
+    const isHorizontalSwipe =
+      Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4;
+
+    touchStartRef.current = null;
+
+    if (!isHorizontalSwipe) return;
+
+    setSplitSide(deltaX < 0 ? "after" : "before");
   }
 
   useEffect(() => {
@@ -172,6 +233,18 @@ export default function Gallery() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpenImage(null);
+        return;
+      }
+
+      if (openImage.kind === "split" && event.key === "ArrowRight") {
+        event.preventDefault();
+        setSplitSide("after");
+        return;
+      }
+
+      if (openImage.kind === "split" && event.key === "ArrowLeft") {
+        event.preventDefault();
+        setSplitSide("before");
         return;
       }
 
@@ -224,13 +297,7 @@ export default function Gallery() {
               <button
                 key={item.id}
                 type="button"
-                onClick={(e) =>
-                  openFromEvent(e, {
-                    src: item.src,
-                    alt: item.alt,
-                    title: item.title,
-                  })
-                }
+                onClick={(e) => openCombinedFromEvent(e, item)}
                 aria-label={`Open ${item.title}`}
                 className="group overflow-hidden rounded-3xl bg-white text-left shadow-sm transition hover:shadow-md card-gold text-on-gold ring-purple"
               >
@@ -259,14 +326,7 @@ export default function Gallery() {
               <div className="grid gap-2 p-2 sm:grid-cols-2">
                 <button
                   type="button"
-                  onClick={(e) =>
-                    openFromEvent(e, {
-                      src: item.before.src,
-                      alt: item.before.alt,
-                      title: item.title,
-                      label: "Before",
-                    })
-                  }
+                  onClick={(e) => openSplitFromEvent(e, item, "before")}
                   aria-label={`Open ${item.title} before image`}
                   className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100"
                 >
@@ -286,14 +346,7 @@ export default function Gallery() {
 
                 <button
                   type="button"
-                  onClick={(e) =>
-                    openFromEvent(e, {
-                      src: item.after.src,
-                      alt: item.after.alt,
-                      title: item.title,
-                      label: "After",
-                    })
-                  }
+                  onClick={(e) => openSplitFromEvent(e, item, "after")}
                   aria-label={`Open ${item.title} after image`}
                   className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100"
                 >
@@ -321,7 +374,7 @@ export default function Gallery() {
         })}
       </div>
 
-      {openImage && (
+      {openImage && activeImage && (
         <div
           className="fixed inset-0 z-[100] overflow-y-auto bg-black/70 p-4"
           role="dialog"
@@ -334,26 +387,63 @@ export default function Gallery() {
             className="mx-auto max-w-5xl overflow-hidden rounded-3xl bg-white shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between gap-3 border-b border-zinc-200 px-5 py-4">
-              <p className="text-sm font-semibold text-zinc-900">
-                {openImage.title}
-                {openImage.label ? ` (${openImage.label})` : ""}
-              </p>
+            <div className="flex flex-col gap-3 border-b border-zinc-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-zinc-900">
+                  {activeImage.title}
+                  {activeImage.label ? ` (${activeImage.label})` : ""}
+                </p>
+                {openImage.kind === "split" ? (
+                  <div
+                    className="mt-3 inline-flex rounded-full border border-zinc-300 bg-zinc-100 p-1"
+                    aria-label="Choose before or after image"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setSplitSide("before")}
+                      aria-pressed={openImage.side === "before"}
+                      className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                        openImage.side === "before"
+                          ? "bg-zinc-900 text-white"
+                          : "text-zinc-700 hover:bg-white"
+                      }`}
+                    >
+                      Before
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSplitSide("after")}
+                      aria-pressed={openImage.side === "after"}
+                      className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                        openImage.side === "after"
+                          ? "badge-copper-solid"
+                          : "text-zinc-700 hover:bg-white"
+                      }`}
+                    >
+                      After
+                    </button>
+                  </div>
+                ) : null}
+              </div>
               <button
                 ref={modalCloseRef}
                 type="button"
                 onClick={() => setOpenImage(null)}
                 aria-label="Close gallery preview"
-                className="rounded-full border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50"
+                className="self-start rounded-full border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50 sm:self-auto"
               >
                 Close
               </button>
             </div>
 
-            <div className="relative aspect-[16/10] w-full bg-zinc-100">
+            <div
+              className="relative aspect-[16/10] w-full touch-pan-y bg-zinc-100"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <Image
-                src={openImage.src}
-                alt={openImage.alt}
+                src={activeImage.src}
+                alt={activeImage.alt}
                 fill
                 className="object-contain"
                 sizes="100vw"
@@ -361,7 +451,9 @@ export default function Gallery() {
             </div>
 
             <div className="px-5 py-4 text-xs text-zinc-600">
-              Tip: pinch-to-zoom on mobile.
+              {openImage.kind === "split"
+                ? "Tip: swipe on mobile or use arrow keys to compare."
+                : "Tip: pinch-to-zoom on mobile."}
             </div>
           </div>
         </div>

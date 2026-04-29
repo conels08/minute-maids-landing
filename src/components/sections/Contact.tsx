@@ -22,7 +22,7 @@ export default function Contact() {
     address: "",
     sqft: "",
     service: "Standard Clean",
-    timing: "Next 2 weeks",
+    timing: "ASAP",
     message: "",
   });
 
@@ -282,6 +282,7 @@ export default function Contact() {
                     }
                     className="mt-2 min-h-[44px] w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 outline-none ring-purple"
                   >
+                    <option>ASAP</option>
                     <option>Next 2 weeks</option>
                     <option>This month</option>
                     <option>Just researching</option>
