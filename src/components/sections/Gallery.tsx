@@ -83,66 +83,66 @@ const items: Item[] = [
   {
     id: "corner-room",
     kind: "split",
-    title: "Corner room",
+    title: "Detail Dusting",
     before: {
       src: "/images/corner_room-before.jpeg",
-      alt: "Corner room before cleaning",
+      alt: "Detail dusting before cleaning",
     },
     after: {
       src: "/images/corner_room-after.jpeg",
-      alt: "Corner room after cleaning",
+      alt: "Detail dusting after cleaning",
     },
   },
   {
     id: "glass-sink",
     kind: "split",
-    title: "Glass sink",
+    title: "Sink Shine",
     before: {
       src: "/images/glass_sink-before.jpeg",
-      alt: "Glass sink before cleaning",
+      alt: "Sink shine before cleaning",
     },
     after: {
       src: "/images/glass_sink-after.jpeg",
-      alt: "Glass sink after cleaning",
+      alt: "Sink shine after cleaning",
     },
   },
   {
     id: "green-couch",
     kind: "split",
-    title: "Green couch",
+    title: "Upholstery Refresh",
     before: {
       src: "/images/green_couch-before.jpeg",
-      alt: "Green couch before cleaning",
+      alt: "Upholstery refresh before cleaning",
     },
     after: {
       src: "/images/green_couch-after.jpeg",
-      alt: "Green couch after cleaning",
+      alt: "Upholstery refresh after cleaning",
     },
   },
   {
     id: "shower-shelf",
     kind: "split",
-    title: "Shower shelf",
+    title: "Shower Detail",
     before: {
       src: "/images/shower_shelf-before.jpeg",
-      alt: "Shower shelf before cleaning",
+      alt: "Shower detail before cleaning",
     },
     after: {
       src: "/images/shower_shelf-after.jpeg",
-      alt: "Shower shelf after cleaning",
+      alt: "Shower detail after cleaning",
     },
   },
   {
     id: "shower-tiles",
     kind: "split",
-    title: "Shower tiles",
+    title: "Tile & Shower Shine",
     before: {
       src: "/images/shower_tiles-before.jpeg",
-      alt: "Shower tiles before cleaning",
+      alt: "Tile and shower shine before cleaning",
     },
     after: {
       src: "/images/shower_tiles-after.jpeg",
-      alt: "Shower tiles after cleaning",
+      alt: "Tile and shower shine after cleaning",
     },
   },
 ];
