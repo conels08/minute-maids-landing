@@ -4,6 +4,9 @@ This file tracks completed client-facing work for pay-period reporting. Dates ar
 
 ## April 2026
 
+- 2026-04-29: Verified live `robots.txt` and `sitemap.xml`, then supported Google Search Console sitemap submission.
+- 2026-04-29: Added Before/After controls, arrow-key support, and mobile swipe navigation to the enlarged gallery image modal.
+- 2026-04-29: Added `ASAP` as the first/default timing option in the quote form and Netlify form detector.
 - 2026-04-29: Added five new before/after gallery image pairs for cleaning results.
 - 2026-04-29: Refined new gallery card names and image alt text to use more polished customer-facing language.
 - 2026-04-29: Removed invalid review rich-result JSON-LD markup so Google Search Console review snippet errors can be cleared while keeping the visible reviews section.
