@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { resolveSiteUrl, site } from "@/lib/site";
-import { reviews } from "@/lib/reviews";
 
 const siteUrl = resolveSiteUrl();
 
@@ -63,24 +62,6 @@ const jsonLd = {
     "Move-out cleaning",
     "Recurring cleaning",
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "3",
-  },
-  review: reviews.slice(0, 3).map((review) => ({
-    "@type": "Review",
-    author: {
-      "@type": "Person",
-      name: review.name,
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: review.rating,
-      bestRating: "5",
-    },
-    reviewBody: review.text,
-  })),
 };
 
 export const metadata: Metadata = {
